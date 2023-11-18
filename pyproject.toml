@@ -6,7 +6,7 @@ authors = ["Aaro Koivukangas <aaro.koivukangas@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.10"
 Flask = "^3.0.0"
 gunicorn = "^21.2.0"
 
