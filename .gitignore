@@ -1,0 +1,9 @@
+# basic python cache
+__pycache__
+
+# coverage
+htmlcov
+.coverage
+
+# pytest
+.pytest_cache
