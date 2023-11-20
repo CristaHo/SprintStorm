@@ -1,12 +1,20 @@
 """
-Defines the Flask's app object.
-
-Contains also a test endpoint.
+Defines the Flask applications dependencies and database connection.
 """
+import os
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
+if os.environ.get('ENVIRONMENT') == 'production':
+    sql_url = os.environ.get('POSTGRES_URL') or None
+else:
+    sql_url = os.environ.get('TEST_POSTGRES_URL') or None
+if sql_url is None:
+    raise Exception("No SQL URL provided")
 
 app = Flask(__name__)
+app.config["DATABASE_URI"] = sql_url
+db = SQLAlchemy(app)
 
 @app.route("/test")
 def hello_world():
