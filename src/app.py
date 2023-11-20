@@ -1,10 +1,19 @@
+"""
+Defines the Flask's app object.
+
+Contains also a test endpoint.
+"""
 from flask import Flask
 
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/test")
 def hello_world():
+    """
+    A basic endpoint to test the app
+    """
+
     return "<p>Hello, World!</p>"
 
 
