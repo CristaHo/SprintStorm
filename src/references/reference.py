@@ -7,24 +7,30 @@
 class Reference:
 
     def __init__(self, author, title, year):
-        self.author = author
-        self.title = title
-        self.year = year
+        self._author = author
+        self._title = title
+        self._year = year
 
-    def set_author(self, author):
-        self.author = author
+    @property
+    def author(self):
+        return self._author
 
-    def set_title(self, title):
-        self.title = title
+    @author.setter
+    def author(self, author):
+        self._author = author
 
-    def set_year(self, year):
-        self.year = year
+    @property
+    def title(self):
+        return self._title
 
-    def get_author(self):
-        return self.author
-    
-    def get_title(self):
-        return self.title
+    @title.setter
+    def title(self, title):
+        self._title = title
 
-    def get_year(self):
-        return self.year
+    @property
+    def year(self):
+        return self._year
+
+    @year.setter
+    def year(self, year):
+        self._year = year
