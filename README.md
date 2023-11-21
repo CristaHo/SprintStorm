@@ -13,7 +13,7 @@
 - **Analysointi ja suunnittelu**: User storya on mietitty yhdessä, jaettu taskeihin ja jaettu taskit ryhmän kesken.
 - **Dokumentointi**: Ryhmä käyttää koodissa python docstringejä ja koodi on eritelty omiin kansioihinsa käyttötavan mukaan.
 - **Testaus**: Sovelluksen osat on yksikkötestattu Unittestilla riittävissä määrin ja laajemmat kokonaisuudet Robot frameworkilla.
-- **Tuotantoon vienti**: User story on valmis tuotantoon kun testit menevät hyväksytysti läpi ja sovellus on Deployattu fly.io
+- **Tuotantoon vienti**: User story on valmis tuotantoon kun testit menevät hyväksytysti läpi ja sovellus on käyttöönotettu fly.io:ssa.
 
 
 
