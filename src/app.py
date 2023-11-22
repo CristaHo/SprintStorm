@@ -4,6 +4,7 @@ Defines the Flask applications dependencies and database connection.
 import os
 from flask import Flask, request, render_template
 from flask_sqlalchemy import SQLAlchemy
+from utils.reference_handler import create_reference
 
 
 if os.environ.get('ENVIRONMENT') == 'production':
@@ -39,7 +40,9 @@ def add_reference():
         title = request.form['title']
         year = request.form['year']
 
-        return f"{author}<br>{title}<br>{year}"
+        ref = create_reference(author, title, year)
+
+        return f"{ref.author}<br>{ref.title}<br>{ref.year}"
         # Add processing for reference information
 
     return None
