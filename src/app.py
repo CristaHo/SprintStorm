@@ -48,6 +48,15 @@ def add_reference():
 
     return None
 
+@app.route("/view_reference")
+def view_reference():
+    """
+    Route for viewing added references
+    """
+    reference_list = [] #Add way to get references
+
+    return render_template("view_reference.html", references=reference_list)
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
