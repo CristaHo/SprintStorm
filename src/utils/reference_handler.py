@@ -3,8 +3,8 @@ reference.py
 
 Module for handling references
 """
-
-from references.reference import Reference
+# pylint: disable=import-error, no-name-in-module
+from src.references.reference import Reference
 
 def create_reference(author: str, title: str, year: str):
     """
