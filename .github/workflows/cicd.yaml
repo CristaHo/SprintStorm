@@ -31,6 +31,9 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
+      - name: Check for errors in deploying
+        run: poetry run gunicorn src.app:app --check-config
+
   deploy:
     needs: QA-checks
     name: Deploy app
