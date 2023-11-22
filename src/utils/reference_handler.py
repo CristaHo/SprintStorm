@@ -4,7 +4,7 @@ reference.py
 Module for handling references
 """
 
-from src.references.reference import Reference
+from references.reference import Reference
 
 def create_reference(author: str, title: str, year: str):
     """
