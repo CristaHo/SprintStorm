@@ -32,7 +32,7 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Check for errors in deploying
-        run: poetry run gunicorn src.app:app --check-config
+        run: poetry run gunicorn src.wsgi:app --check-config
 
   deploy:
     needs: QA-checks
