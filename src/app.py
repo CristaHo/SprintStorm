@@ -1,11 +1,14 @@
 """
 Defines the Flask applications dependencies and database connection.
 """
-
-from flask import Flask, request, render_template
+import os
+from flask import Flask
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from utils.reference_handler import create_reference
-from utils.environment import read_postgres_url
+from views.add_reference import add_reference_bp
+from views.view_reference import view_reference_bp
+from views.add_reference import add_reference_bp
+from views.view_reference import view_reference_bp
 
 sql_url = read_postgres_url()
 if sql_url is None:
@@ -14,7 +17,6 @@ if sql_url is None:
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = sql_url
 db = SQLAlchemy(app)
-
 app.register_blueprint(add_reference_bp)
 app.register_blueprint(view_reference_bp)
 
