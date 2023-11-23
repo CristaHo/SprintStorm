@@ -1,19 +1,14 @@
 """
 Defines the Flask applications dependencies and database connection.
 """
-import os
 from flask import Flask, request, render_template
 from flask_sqlalchemy import SQLAlchemy
 from utils.reference_handler import create_reference
+from utils.environment import read_postgres_url
 
-
-if os.environ.get('ENVIRONMENT') == 'production':
-    sql_url = os.environ.get('POSTGRES_URL') or None
-else:
-    sql_url = os.environ.get('TEST_POSTGRES_URL') or None
+sql_url = read_postgres_url()
 if sql_url is None:
     raise RuntimeError("No SQL URL was found. Connection cannot be made.")
-
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = sql_url
