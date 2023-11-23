@@ -10,6 +10,8 @@ on:
 
 env:
   ENVIRONMENT: staging
+  POSTGRES_URL: ${{ secrets.POSTGRES_URL }}
+  TEST_POSTGRES_URL: ${{ secrets.TEST_POSTGRES_URL }}
 
 jobs:
   QA-checks:
