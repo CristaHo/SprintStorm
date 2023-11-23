@@ -1,9 +1,9 @@
-from flask import Flask, request, render_template
+from flask import Blueprint, request, render_template
 from utils.reference_handler import create_reference
 
-from app import app
+add_reference_bp = Blueprint('add_reference', __name__)
 
-@app.route("/add_reference", methods=["GET", "POST"])
+@add_reference_bp.route("/add_reference", methods=["GET", "POST"])
 def add_reference():
     """
     Route for handling adding a new reference

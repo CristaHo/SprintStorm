@@ -2,9 +2,10 @@
 Defines the Flask applications dependencies and database connection.
 """
 import os
-from flask import Flask, request, render_template
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-
+from views.add_reference import add_reference_bp
+from views.view_reference import view_reference_bp
 
 if os.environ.get('ENVIRONMENT') == 'production':
     sql_url = os.environ.get('POSTGRES_URL') or None
@@ -17,26 +18,8 @@ if sql_url is None:
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = sql_url
 db = SQLAlchemy(app)
-
-@app.route("/test")
-def hello_world():
-    """
-    A basic endpoint to test the app
-    """
-
-    return "<p>Hello, World!</p>"
-
-
-@app.route("/view_reference")
-def view_reference():
-    """
-    Route for viewing added references
-    """
-    reference_list = [] #Add way to get references
-
-    return render_template("view_reference.html", references=reference_list)
-
-import views.add_reference
+app.register_blueprint(add_reference_bp)
+app.register_blueprint(view_reference_bp)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
