@@ -4,6 +4,13 @@ CREATE TABLE IF NOT EXISTS users (
     password TEXT
 );
 
+CREATE TABLE IF NOT EXISTS reference (
+    id SERIAL PRIMARY KEY, 
+    author TEXT, 
+    title TEXT, 
+    year INTEGER
+);
+
 CREATE TABLE IF NOT EXISTS book (
     id SERIAL PRIMARY KEY, 
     user_key TEXT,
