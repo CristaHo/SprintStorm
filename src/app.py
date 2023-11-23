@@ -18,6 +18,7 @@ if sql_url is None:
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = sql_url
 db = SQLAlchemy(app)
+
 app.register_blueprint(add_reference_bp)
 app.register_blueprint(view_reference_bp)
 
