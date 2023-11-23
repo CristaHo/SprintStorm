@@ -1,6 +1,6 @@
 # SprintStorm
 
-![GHA workflow badge](https://github.com/CristaHo/SprintStorm/workflows/Deployment%20pipeline/badge.svg) [![codecov](https://codecov.io/gh/CristaHo/ohtuvarasto/graph/badge.svg?token=Y6KV7EOO7E)](https://codecov.io/gh/CristaHo/ohtuvarasto)
+![GHA workflow badge](https://github.com/CristaHo/SprintStorm/workflows/Deployment%20pipeline/badge.svg) [![codecov](https://codecov.io/gh/CristaHo/SprintStorm/graph/badge.svg?token=6BU1UUYW1L)](https://codecov.io/gh/CristaHo/SprintStorm) 
 
 ## Linkit
 
