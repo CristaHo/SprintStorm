@@ -17,7 +17,7 @@ class AddReferenceTestCase(TestCase):
     def test_post_add_reference(self):
         data = {'author': 'Tester', 'title': 'Example Title', 'year': '2000'}
         response = self.client.post('/add_reference', data=data)
-        
+
         self.assertIn(b'Tester', response.data)
         self.assertIn(b'Example', response.data)
         self.assertIn(b'2000', response.data)
