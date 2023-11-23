@@ -1,3 +1,7 @@
+"""
+Blueprint for handling the addition of new references.
+"""
+
 from flask import Blueprint, request, render_template
 from utils.reference_handler import create_reference
 
