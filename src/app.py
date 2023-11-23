@@ -16,7 +16,7 @@ if sql_url is None:
 
 
 app = Flask(__name__)
-app.config["DATABASE_URI"] = sql_url
+app.config["SQLALCHEMY_DATABASE_URI"] = sql_url
 db = SQLAlchemy(app)
 
 @app.route("/test")
