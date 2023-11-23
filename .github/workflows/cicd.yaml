@@ -8,6 +8,11 @@ on:
     branches: [main]
     types: [opened, synchronize]
 
+env:
+  ENVIRONMENT: staging
+  POSTGRES_URL: ${{ secrets.POSTGRES_URL }}
+  TEST_POSTGRES_URL: ${{ secrets.TEST_POSTGRES_URL }}
+
 jobs:
   QA-checks:
     runs-on: ubuntu-20.04
@@ -30,6 +35,9 @@ jobs:
         uses: codecov/codecov-action@v3
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Check for errors in deploying
+        run: poetry run gunicorn --chdir src wsgi:app --check-config
 
   deploy:
     needs: QA-checks
