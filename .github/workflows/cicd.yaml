@@ -31,6 +31,9 @@ jobs:
         run: poetry run coverage run --branch -m pytest
       - name: Run lint
         run: poetry run pylint src
+
+      - name: Generate coverage report
+        run: poetry run coverage xml
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:
