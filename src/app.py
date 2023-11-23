@@ -1,14 +1,11 @@
 """
 Defines the Flask applications dependencies and database connection.
 """
-import os
-from flask import Flask
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from views.add_reference import add_reference_bp
 from views.view_reference import view_reference_bp
-from views.add_reference import add_reference_bp
-from views.view_reference import view_reference_bp
+from utils.environment import read_postgres_url
 
 sql_url = read_postgres_url()
 if sql_url is None:
