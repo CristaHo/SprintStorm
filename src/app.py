@@ -27,6 +27,13 @@ def hello_world():
 
     return "<p>Hello, World!</p>"
 
+@app.route("/")
+def index():
+    """
+    Route for viewing index-page
+    """
+    return render_template("index.html")
+
 @app.route("/add_reference", methods=["GET", "POST"])
 def add_reference():
     """
