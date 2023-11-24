@@ -3,7 +3,7 @@ Blueprint for handling viewing references.
 """
 
 from flask import Blueprint, render_template
-from utils.reference_handler import get_references
+from src.utils.reference_handler import get_references
 
 view_reference_bp = Blueprint('view_reference', __name__)
 
