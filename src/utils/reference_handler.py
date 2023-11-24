@@ -18,4 +18,5 @@ def create_reference(author: str, title: str, year: str):
     return ref
 
 def get_references():
+    """Returns current references"""
     return references
