@@ -1,4 +1,6 @@
-
+"""
+    This module is used to connect to the database.
+"""
 from flask_sqlalchemy import SQLAlchemy
 from utils.environment import read_postgres_url
 from src.app import app

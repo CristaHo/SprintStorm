@@ -9,10 +9,16 @@
 from src.references.reference import Reference
 
 class Book(Reference):
-    def __init__(self, author, title, year, publisher, address):
-        super().__init__(author, title, year)
-        self._publisher = publisher
-        self._address = address
+    """
+        Class for book references, extends Reference
+    """
+    def __init__(self, fields):
+        super().__init__(
+            fields={"author":fields['author'],
+                    "title":fields['title'],
+                    "year":fields['year']})
+        self._publisher = fields['publisher']
+        self._address = fields['address']
 
     @property
     def publisher(self):

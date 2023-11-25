@@ -12,14 +12,17 @@ from src.references.reference import Reference
 
 class Article(Reference):
     """
-    Article class
+        Class for article references, extends Reference
     """
-    def __init__(self, author, title, year, journal, volume, number, pages):
-        super().__init__(author, title, year)
-        self._journal = journal
-        self._volume = volume
-        self._number = number
-        self._pages = pages
+    def __init__(self, fields):
+        super().__init__(
+            fields={"author":fields['author'],
+                    "title":fields['title'],
+                    "year":fields['year']})
+        self._journal = fields['journal']
+        self._volume = fields['volume']
+        self._number = fields['number']
+        self._pages = fields['pages']
 
     @property
     def journal(self):

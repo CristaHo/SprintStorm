@@ -23,18 +23,13 @@ class ReferenceHandler:
         Adds reference to the list
         """
         if reftype == "book":
-            self.create_book(
-                fields['author'], fields['title'], fields['year'],
-                fields['publisher'], fields['address'])
+            ref = self.create_book(fields)
         elif reftype == "article":
-            self.create_article(
-                fields['author'], fields['title'], fields['year'],
-                fields['journal'], fields['volume'], fields['number'],
-                fields['pages'])
+            ref = self.create_article(fields)
         else:
-            ref = Reference(fields['author'], fields['title'], fields['year'])
+            ref = Reference(fields=fields)
             self._references.append(ref)
-            return ref
+        return ref
 
     def get_references(self):
         """
@@ -42,31 +37,19 @@ class ReferenceHandler:
         """
         return self._references
 
-    def create_book(self,
-        author: str,
-        title: str,
-        year: str,
-        publisher: str,
-        address: str):
+    def create_book(self,fields: dict):
         """
         Module function for creating Book object
         """
-        ref = Book(author, title, year, publisher, address)
+        ref = Book(fields=fields)
         self._references.append(ref)
         return ref
 
-    def create_article(self,
-        author: str,
-        title: str,
-        year: str,
-        journal: str,
-        volume: str,
-        number: str,
-        pages: str):
+    def create_article(self,fields: dict):
         """
         Module function for creating Article object
         """
-        ref = Article(author, title, year, journal, volume, number, pages)
+        ref = Article(fields=fields)
         self._references.append(ref)
         return ref
 

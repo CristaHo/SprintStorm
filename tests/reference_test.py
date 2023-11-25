@@ -3,7 +3,7 @@ from src.references.reference import Reference
 
 class TestReference(unittest.TestCase):
     def setUp(self):
-        self.reference = Reference(author = "mk", title="idk",year = "2001")
+        self.reference = Reference(fields={"author":"mk", "title":"idk","year":"2001"})
 
     def test_author_takes_constructor_value(self):
         self.assertEqual(self.reference.author, "mk")

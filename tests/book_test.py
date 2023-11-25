@@ -3,9 +3,9 @@ from src.references.book import Book
 
 class TestBook(unittest.TestCase):
     def setUp(self):
-        self.reference = Book(
-            author = "mk", title="idk",year = "2001",
-            publisher="publisher",address="address")
+        self.reference = Book(fields={
+            "author":"mk", "title":"idk","year":"2001",
+            "publisher":"publisher","address":"address"})
 
     def test_author_takes_constructor_value(self):
         self.assertEqual(self.reference.author, "mk")

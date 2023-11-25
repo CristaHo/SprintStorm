@@ -3,10 +3,10 @@ from src.references.article import Article
 
 class TestArticle(unittest.TestCase):
     def setUp(self):
-        self.reference = Article(
-            author = "mk", title="idk",year = "2001",
-            journal = "journal", volume = "volume",
-            number = "number", pages = "pages")
+        self.reference = Article(fields={
+            "author" : "mk", "title":"idk","year" : "2001",
+            "journal" : "journal", "volume" : "volume",
+            "number" : "number", "pages" : "pages"})
 
     def test_author_takes_constructor_value(self):
         self.assertEqual(self.reference.author, "mk")
