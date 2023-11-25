@@ -8,18 +8,60 @@
         - number
         - pages
 """
-from reference import Reference
+from src.references.reference import Reference
 
 class Article(Reference):
     """
     Article class
     """
     def __init__(self, author, title, year, journal, volume, number, pages):
-        super.__init__(author, title, year)
+        super().__init__(author, title, year)
         self._journal = journal
         self._volume = volume
         self._number = number
         self._pages = pages
+
+    @property
+    def author(self):
+        """
+        Returns the author
+        """
+        return self._author
+
+    @author.setter
+    def author(self, author):
+        """
+        Sets the author
+        """
+        self._author = author
+
+    @property
+    def title(self):
+        """
+        Returns the title
+        """
+        return self._title
+
+    @title.setter
+    def title(self, title):
+        """
+        Sets the title
+        """
+        self._title = title
+
+    @property
+    def year(self):
+        """
+        Returns the year
+        """
+        return self._year
+
+    @year.setter
+    def year(self, year):
+        """
+        Sets the year
+        """
+        self._year = year
 
     @property
     def journal(self):

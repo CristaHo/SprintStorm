@@ -7,25 +7,7 @@ Module for handling references
 from src.references.reference import Reference
 from src.references.book import Book
 from src.references.article import Article
-from src.utils.database import DB
-
-references = []
-
-def create_reference(
-    author: str,
-    title: str,
-    year: str):
-    """
-    Module function for creating Reference object
-    """
-    ref = Reference(author, title, year)
-    references.append(ref)
-
-    return ref
-
-def get_references():
-    """Returns current references"""
-    return references
+#from src.utils.database import DB
 
 class ReferenceHandler:
     """
@@ -41,11 +23,16 @@ class ReferenceHandler:
         Adds reference to the list
         """
         if reftype == "book":
-            self.create_book(fields)
+            self.create_book(
+                fields['author'], fields['title'], fields['year'],
+                fields['publisher'], fields['address'])
         elif reftype == "article":
-            self.create_article(fields)
+            self.create_article(
+                fields['author'], fields['title'], fields['year'],
+                fields['journal'], fields['volume'], fields['number'],
+                fields['pages'])
         else:
-            ref = Reference(fields)
+            ref = Reference(fields['author'], fields['title'], fields['year'])
             self._references.append(ref)
             return ref
 
@@ -82,3 +69,5 @@ class ReferenceHandler:
         ref = Article(author, title, year, journal, volume, number, pages)
         self._references.append(ref)
         return ref
+
+reference_handler = ReferenceHandler()

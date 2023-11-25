@@ -21,4 +21,3 @@ class AddReferenceTestCase(TestCase):
         self.assertIn(b'Tester', response.data)
         self.assertIn(b'Example', response.data)
         self.assertIn(b'2000', response.data)
-        
