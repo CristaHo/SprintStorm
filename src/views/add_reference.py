@@ -20,7 +20,9 @@ def add_reference():
         title = request.form['title']
         year = request.form['year']
 
-        ref = reference_handler.create_reference(reftype='ref',fields={'author':author, 'title':title, 'year':year})
+        ref = reference_handler.create_reference(
+            reftype='ref',
+            fields={'author':author, 'title':title, 'year':year})
 
         return f"{ref.author}<br>{ref.title}<br>{ref.year}"
 
