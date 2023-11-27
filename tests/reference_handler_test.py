@@ -26,7 +26,7 @@ class TestReferenceHandler(unittest.TestCase):
 
     def test_create_reference_creates_reference_with_correct_type(self):
         self.reference_handler.create_reference(reftype="reference", fields={"author": "mk", "title": "idk", "year": "2001"})
-        self.assertEqual(type(self.reference_handler.get_references()[0]), Reference)
+        self.assertIsInstance(self.reference_handler.get_references()[0], Reference)
 
     def test_create_reference_creates_article_with_correct_values(self):
         self.reference_handler.create_reference(reftype="article", fields={"author": "mk", "title": "idk", "year": "2001", "journal": "journal", "volume": "volume", "number": "number", "pages": "pages"})
@@ -40,7 +40,7 @@ class TestReferenceHandler(unittest.TestCase):
 
     def test_create_reference_creates_article_with_correct_type(self):
         self.reference_handler.create_reference(reftype="article", fields={"author": "mk", "title": "idk", "year": "2001", "journal": "journal", "volume": "volume", "number": "number", "pages": "pages"})
-        self.assertEqual(type(self.reference_handler.get_references()[0]), Article)
+        self.assertIsInstance(self.reference_handler.get_references()[0], Article)
 
     def test_create_reference_creates_book_with_correct_values(self):
         self.reference_handler.create_reference(reftype="book", fields={"author": "mk", "title": "idk", "year": "2001", "publisher": "publisher", "address": "address"})
@@ -52,4 +52,4 @@ class TestReferenceHandler(unittest.TestCase):
 
     def test_create_reference_creates_book_with_correct_type(self):
         self.reference_handler.create_reference(reftype="book", fields={"author": "mk", "title": "idk", "year": "2001", "publisher": "publisher", "address": "address"})
-        self.assertEqual(type(self.reference_handler.get_references()[0]), Book)
+        self.assertIsInstance(self.reference_handler.get_references()[0], Book)

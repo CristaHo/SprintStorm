@@ -30,10 +30,7 @@ class TestArticle(unittest.TestCase):
         self.assertEqual(self.reference.year, "2005")
 
     def test_get_type_returns_article(self):
-        type_as_string = str(type(self.reference))
-        self.assertIn("class", type_as_string)
-        self.assertIn("article", type_as_string)
-        self.assertIn("Article", type_as_string)
+        self.assertIsInstance(self.reference, Article)
 
     def test_journal_takes_constructor_value(self):
         self.reference.journal = "journal"

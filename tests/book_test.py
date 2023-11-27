@@ -29,10 +29,7 @@ class TestBook(unittest.TestCase):
         self.assertEqual(self.reference.year, "2005")
 
     def test_get_type_returns_book(self):
-        type_as_string = str(type(self.reference))
-        self.assertIn("class", type_as_string)
-        self.assertIn("book", type_as_string)
-        self.assertIn("Book", type_as_string)
+        self.assertIsInstance(self.reference, Book)
 
     def test_publisher_takes_constructor_value(self):
         self.reference.publisher = "publisher"
