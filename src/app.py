@@ -3,7 +3,6 @@ Defines the Flask applications dependencies and database connection.
 """
 
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 
 from views.index import index_bp
