@@ -8,15 +8,15 @@ class Reference:
     """
     Parent class for references
     """
-    def __init__(self, author, title, year):
+    def __init__(self, fields: dict):
         """
         author: author of the refernce
         title: title of the reference
         year: year when reference was published
         """
-        self._author = author
-        self._title = title
-        self._year = year
+        self._author = fields['author']
+        self._title = fields['title']
+        self._year = fields['year']
 
     @property
     def author(self):

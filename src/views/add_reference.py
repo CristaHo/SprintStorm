@@ -3,7 +3,7 @@ Blueprint for handling the addition of new references.
 """
 
 from flask import Blueprint, request, render_template
-from src.utils.reference_handler import create_reference
+from src.utils.reference_handler import reference_handler
 
 add_reference_bp = Blueprint('add_reference', __name__)
 
@@ -20,7 +20,9 @@ def add_reference():
         title = request.form['title']
         year = request.form['year']
 
-        ref = create_reference(author, title, year)
+        ref = reference_handler.create_reference(
+            reftype='ref',
+            fields={'author':author, 'title':title, 'year':year})
 
         return f"{ref.author}<br>{ref.title}<br>{ref.year}"
 

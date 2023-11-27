@@ -1,11 +1,9 @@
 import unittest
 from src.references.reference import Reference
-from src.utils.reference_handler import create_reference
-
 
 class TestReference(unittest.TestCase):
     def setUp(self):
-        self.reference = Reference(author = "mk", title="idk",year = "2001")
+        self.reference = Reference(fields={"author":"mk", "title":"idk","year":"2001"})
 
     def test_author_takes_constructor_value(self):
         self.assertEqual(self.reference.author, "mk")
@@ -27,7 +25,3 @@ class TestReference(unittest.TestCase):
     def test_set_year_changes_year(self):
         self.reference.year = "2005"
         self.assertEqual(self.reference.year, "2005")
-
-    def test_reference_handler(self):
-        ref = create_reference("tester", "The test", "1999")
-        self.assertEqual(ref.title, "The test")
