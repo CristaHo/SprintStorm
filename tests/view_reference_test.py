@@ -7,6 +7,7 @@ from src.utils import config as conf
 class AddReferenceTestCase(TestCase):
     def create_app(self):
         app = Flask(__name__)
+        app.template_folder = '../src/templates'
         app.config['TESTING'] = True
         app.config['SQLALCHEMY_DATABASE_URI'] = conf.db_url() # Use a separate test database
         app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
