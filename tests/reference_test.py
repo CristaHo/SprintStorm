@@ -25,3 +25,12 @@ class TestReference(unittest.TestCase):
     def test_set_year_changes_year(self):
         self.reference.year = "2005"
         self.assertEqual(self.reference.year, "2005")
+
+    def test_bibtex_str(self):
+        example_str = """@reference{TODO
+    title = idk
+    author = mk
+    year = 2001
+}"""
+        bibtex_str = self.reference.bibtex_str()
+        self.assertEqual(bibtex_str, example_str)

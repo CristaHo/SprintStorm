@@ -47,3 +47,15 @@ class Book(Reference):
         Sets address
         """
         self._address = address
+
+    def bibtex_str(self) -> str:
+        # \u007b = {
+        # \u007d = }
+        string = f"""@book\u007b{self.unique_id}
+    title = {self.title}
+    author = {self.author}
+    year = {self.year}
+    publisher = {self.publisher}
+    address = {self.address}
+\u007d"""
+        return string

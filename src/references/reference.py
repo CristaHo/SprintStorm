@@ -17,6 +17,7 @@ class Reference:
         self._author = fields['author']
         self._title = fields['title']
         self._year = fields['year']
+        self.unique_id = "TODO"
 
     @property
     def author(self):
@@ -59,3 +60,16 @@ class Reference:
         Sets year
         """
         self._year = year
+
+    def bibtex_str(self) -> str:
+        """Creates a BibTeX formatted string of the reference
+
+        :returns: Class object as a string, formatted as BibTeX entry
+        """
+        # \u007b = {
+        # \u007d = }
+        return f"""@reference\u007b{self.unique_id}
+    title = {self.title}
+    author = {self.author}
+    year = {self.year}
+\u007d"""
