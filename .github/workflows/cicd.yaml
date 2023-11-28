@@ -26,16 +26,19 @@ jobs:
         run: pip install poetry
       - name: Install dependencies
         run: poetry install
-      - name: Install chromedriver for Robot
-        run: sudo apt-get install google-chrome chromium-chromedriver
 
       - name: Run unit tests
         run: poetry run coverage run --branch -m pytest
-      - name: Run Robot tests
-        run: poetry run robot tests
 
       - name: Run lint
         run: poetry run pylint src
+
+      - name: Robot Framework
+        uses: joonvena/robotframework-docker-action@v1.0
+        with:
+          browser: 'chrome'
+          robot_threads: 2
+          robot_tests_dir: tests
 
       - name: Generate coverage report
         run: poetry run coverage xml
