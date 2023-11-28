@@ -4,7 +4,7 @@ from src.references.book import Book
 class TestBook(unittest.TestCase):
     def setUp(self):
         self.reference = Book(fields={
-            "author":"mk", "title":"idk","year":"2001",
+            "author":"mk", "title":"idk","year":2001,
             "publisher":"publisher","address":"address"})
 
     def test_author_takes_constructor_value(self):
@@ -22,11 +22,11 @@ class TestBook(unittest.TestCase):
         self.assertEqual(self.reference.title, "ik")
 
     def test_year_takes_constructor_value(self):
-        self.assertEqual(self.reference.year,"2001")
+        self.assertEqual(self.reference.year,2001)
 
     def test_set_year_changes_year(self):
-        self.reference.year = "2005"
-        self.assertEqual(self.reference.year, "2005")
+        self.reference.year = 2005
+        self.assertEqual(self.reference.year, 2005)
 
     def test_get_type_returns_book(self):
         self.assertIsInstance(self.reference, Book)

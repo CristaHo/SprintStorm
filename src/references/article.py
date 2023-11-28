@@ -8,74 +8,89 @@
         - number
         - pages
 """
+from sqlalchemy.ext.hybrid import hybrid_property
 from src.references.reference import Reference
+from src.utils.database import db
 
 class Article(Reference):
     """
         Class for article references, extends Reference
     """
+    __tablename__ = 'article'
+
+    id = db.Column(db.Integer, db.ForeignKey('reference.id'), primary_key=True)
+    _journal = db.Column(db.String(255), name='journal')
+    _volume = db.Column(db.Integer, name='volume')
+    _pages = db.Column(db.String(255), name='pages')
+
     def __init__(self, fields):
+        """
+        Extends Reference
+        journal: Journal the article was published in
+        volume: Volume of the article
+        number: number of the article
+        pages: On which pages the article is
+        """
         super().__init__(
             fields={"author":fields['author'],
                     "title":fields['title'],
                     "year":fields['year']})
         self._journal = fields['journal']
         self._volume = fields['volume']
-        self._number = fields['number']
         self._pages = fields['pages']
 
-    @property
+    @staticmethod
+    def get_all():
+        "Return all articles from table"
+        rows = Article.query.all()
+        return rows
+
+    @staticmethod
+    def insert_one(article):
+        "Inserts one article into db"
+        db.session.add(article)
+        db.session.commit()
+
+
+    @hybrid_property
     def journal(self):
         """
-        Returns the journal
+        Getter for journal
         """
         return self._journal
 
     @journal.setter
-    def journal(self, journal):
+    def journal(self, value):
         """
-        Sets the journal
+        Setter for journal
         """
-        self._journal = journal
+        self._journal = value
 
-    @property
+    @hybrid_property
     def volume(self):
         """
-        Return volume
+        Getter for volume
         """
         return self._volume
 
     @volume.setter
-    def volume(self, volume):
+    def volume(self, value):
         """
-        Sets volume
+        Setter for volume
         """
-        self._volume = volume
+        self._volume = value
 
-    @property
-    def number(self):
-        """
-        returns number
-        """
-        return self._number
-
-    @number.setter
-    def number(self, number):
-        """
-        Sets number
-        """
-        self._number = number
-
-    @property
+    @hybrid_property
     def pages(self):
         """
-        returns pages
+        Getter for pages
         """
         return self._pages
 
     @pages.setter
-    def pages(self, pages):
+    def pages(self, value):
         """
-        Sets pages
+        Setter for pages
         """
-        self._pages = pages
+        self._pages = value
+        

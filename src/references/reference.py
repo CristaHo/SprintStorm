@@ -3,14 +3,23 @@
 
     Contains reference fields: Author, Title and Year.
 """
+from sqlalchemy.ext.hybrid import hybrid_property
+from src.utils.database import db
 
-class Reference:
+class Reference(db.Model):
     """
     Parent class for references
     """
+    __tablename__ = 'reference'
+
+    id = db.Column(db.Integer, primary_key=True)
+    _author = db.Column(db.String(255), name='author')
+    _title = db.Column(db.String(255), name='title')
+    _year = db.Column(db.Integer, name='year')
+
     def __init__(self, fields: dict):
         """
-        author: author of the refernce
+        author: author of the reference
         title: title of the reference
         year: year when reference was published
         """
@@ -18,44 +27,56 @@ class Reference:
         self._title = fields['title']
         self._year = fields['year']
 
-    @property
+    @staticmethod
+    def get_all():
+        "Returns all References from table"
+        rows = Reference.query.all()
+        return rows
+
+    @staticmethod
+    def insert_one(reference):
+        "Inserts one reference into db"
+        db.session.add(reference)
+        db.session.commit()
+
+    @hybrid_property
     def author(self):
         """
-        Returns the author
+        Getter for author
         """
         return self._author
 
     @author.setter
     def author(self, author):
         """
-        Sets the author
+        Setter for author
         """
         self._author = author
 
-    @property
+    @hybrid_property
     def title(self):
         """
-        Return title
+        Getter for title
         """
         return self._title
 
     @title.setter
     def title(self, title):
         """
-        Sets title
+        Setter for title
         """
         self._title = title
 
-    @property
+    @hybrid_property
     def year(self):
         """
-        returns year
+        Getter for year
         """
         return self._year
 
     @year.setter
     def year(self, year):
         """
-        Sets year
+        Setter for year
         """
         self._year = year

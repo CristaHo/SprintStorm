@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS article (
     id SERIAL PRIMARY KEY, 
     user_key INTEGER, 
     author TEXT,
+    title TEXT,
     year INTEGER,
     journal TEXT,
     volume INTEGER,
