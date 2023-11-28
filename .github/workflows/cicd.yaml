@@ -27,8 +27,11 @@ jobs:
       - name: Install dependencies
         run: poetry install
 
-      - name: Run tests
+      - name: Run unit tests
         run: poetry run coverage run --branch -m pytest
+      - name: Run Robot tests
+        run: poetry run robot tests
+
       - name: Run lint
         run: poetry run pylint src
 
