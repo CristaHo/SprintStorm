@@ -10,12 +10,15 @@ choose_reference_bp = Blueprint('choose-reference', __name__)
 
 @choose_reference_bp.route("/choose_reference", methods=["GET", "POST"])
 def choose_reference():
+    """
+    Route for choosing reference type.
+    """
     if request.method == "GET":
         return render_template("add_reference.html")
     if request.method == "POST":
-        choice = request.args["ref"]
+        choice = request.args['ref']
 
-        return render_template("add_reference.html", choice)
+        return render_template("add_reference.html", choice=choice)
 
 
 @add_reference_bp.route("/add_reference", methods=["GET", "POST"])
