@@ -15,7 +15,7 @@ class AddReferenceTestCase(TestCase):
 
         # Initialize SQLAlchemy with the app context
         db.init_app(app)
-
+    
         return app
 
     def setUp(self):
@@ -29,7 +29,9 @@ class AddReferenceTestCase(TestCase):
 
     def test_post_add_reference(self):
         data = {'author': 'Tester', 'title': 'Example Title', 'year': '2000'}
-        response = self.client.post('/add_reference', data=data)
+        response = self.client.post('/add_reference', data=data, follow_redirects=True)
+        
+        self.assert_200(response)
 
         self.assertIn(b'Tester', response.data)
         self.assertIn(b'Example', response.data)
