@@ -1,10 +1,53 @@
-<form action="/add_reference" method="POST">
-    <label for="author">Author:</label>
-    <input type="text" name="author" id="author"><br>
-    <label for="title">Title:</label>
-    <input type="text" name="title" id="title"><br>
-    <label for="year">Year:</label>
-    <input type="int" name="year" id="year"><br>
-    <input type="submit" value="Add reference">
-</form>
-<a href="/">Back to frontpage</a>
+<body>
+    {% block content %}
+    <form action="/choose_reference">
+        <label for="ref">Choose reference type:</label>
+        <select id="ref" name="ref">
+          <option value="book">Book</option>
+          <option value="article">Article</option>
+        </select>
+        <input type="submit">
+      </form>
+    
+      {% if choice == "book" %}
+      <form action="/add_reference" method="POST">
+        <label for="key">Key:</label>
+        <input type="text" name="key" id="key"><br>
+        <label for="author">Author:</label>
+        <input type="text" name="author" id="author"><br>
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title"><br>
+        <label for="year">Year:</label>
+        <input type="int" name="year" id="year"><br>
+        <label for="publisher">Publisher:</label>
+        <input type="text" name="publisher" id="publisher"><br>
+        <input type="submit" value="Add reference">
+    </form>
+    <a href="/">Back to frontpage</a>
+    {% elif choice == "article" %}
+    <form action="/add_reference" method="POST">
+      <label for="key">Key:</label>
+      <input type="text" name="key" id="key"><br>
+      <label for="author">Author:</label>
+      <input type="text" name="author" id="author"><br>
+      <label for="title">Title:</label>
+      <input type="text" name="title" id="title"><br>
+      <label for="year">Year:</label>
+      <input type="int" name="year" id="year"><br>
+      <label for="journal">Journal:</label>
+      <input type="text" name="journal" id="journal"><br>
+      <label for="volume">Volume:</label>
+      <input type="int" name="volume" id="volume"><br>
+      <label for="pages">Pages:</label>
+      <input type="text" name="pages" id="pages"><br>
+      <input type="submit" value="Add reference">
+    </form>
+    <a href="/">Back to frontpage</a>
+    {% else %}
+     <div></div>
+    {% endif %}
+    {% endblock %}
+    </body>
+    
+      
+    
