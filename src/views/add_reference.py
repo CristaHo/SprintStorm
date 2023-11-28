@@ -19,6 +19,7 @@ def choose_reference():
         choice = request.args['ref']
 
         return render_template("add_reference.html", choice=choice)
+    return None
 
 
 @add_reference_bp.route("/add_reference", methods=["GET", "POST"])
