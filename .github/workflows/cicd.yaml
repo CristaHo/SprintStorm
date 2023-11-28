@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: poetry install
       - name: Install chromedriver for Robot
-        run: apt-get install chromedriver
+        run: sudo apt-get install chromedriver
 
       - name: Run unit tests
         run: poetry run coverage run --branch -m pytest
