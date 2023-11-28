@@ -30,6 +30,7 @@ jobs:
       - name: Run unit tests
         run: poetry run coverage run --branch -m pytest
       - name: Run Robot tests
+        uses: nanasess/setup-chromedriver@v2
         run: poetry run robot tests
 
       - name: Run lint
