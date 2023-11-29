@@ -2,8 +2,8 @@
 Library  SeleniumLibrary
 
 *** Variables ***
-${SERVER}  localhost:3000
-${DELAY}  0 seconds
+${SERVER}  localhost:8000
+${DELAY}  0.5 seconds
 ${FRONTPAGE_URL}  http://${SERVER}
 ${ADD_REFERENCE_URL}  http://${SERVER}/add_reference
 ${VIEW_REFERENCE_URL}  http://${SERVER}/view_reference
@@ -11,7 +11,7 @@ ${VIEW_REFERENCE_URL}  http://${SERVER}/view_reference
 *** Keywords ***
 Open And Configure Browser
     ${options}  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys
-    Call Method  ${options}  add_argument  --headless
+    #Call Method  ${options}  add_argument  --headless
     Open Browser  browser=chrome  options=${options}
     Set Selenium Speed  ${DELAY}
 
