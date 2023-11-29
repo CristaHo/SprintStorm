@@ -8,3 +8,9 @@ htmlcov
 # pytest
 .pytest_cache
 .env
+
+# robot
+log.html
+output.xml
+report.html
+selenium-screenshot-*
