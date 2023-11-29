@@ -79,3 +79,16 @@ class Article(Reference):
         Sets pages
         """
         self._pages = pages
+
+    def bibtex_str(self) -> str:
+        # \u007b = {
+        # \u007d = }
+        return f"""@article\u007b{self.unique_id}
+    title = {self.title}
+    author = {self.author}
+    year = {self.year}
+    journal = {self.journal}
+    volume = {self.volume}
+    number = {self.number}
+    pages = {self.pages}
+\u007d"""

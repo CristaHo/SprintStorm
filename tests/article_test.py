@@ -63,3 +63,16 @@ class TestArticle(unittest.TestCase):
     def test_set_pages_changes_pages(self):
         self.reference.pages = "pages2"
         self.assertEqual(self.reference.pages, "pages2")
+
+    def test_bibtex_str(self):
+        example_str = """@article{TODO
+    title = idk
+    author = mk
+    year = 2001
+    journal = journal
+    volume = volume
+    number = number
+    pages = pages
+}"""
+        bibtex_str = self.reference.bibtex_str()
+        self.assertEqual(bibtex_str, example_str)

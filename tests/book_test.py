@@ -46,3 +46,14 @@ class TestBook(unittest.TestCase):
     def test_set_address_changes_address(self):
         self.reference.address = "address2"
         self.assertEqual(self.reference.address, "address2")
+
+    def test_bibtex_str(self):
+        example_str = """@book{TODO
+    title = idk
+    author = mk
+    year = 2001
+    publisher = publisher
+    address = address
+}"""
+        bibtex_str = self.reference.bibtex_str()
+        self.assertEqual(bibtex_str, example_str)
