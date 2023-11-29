@@ -39,12 +39,10 @@ class ReferenceHandler:
 
     def get_references_in_bibtex(self):
         """
-        Returns list of references in bibtex format
+        Returns list of references in bibtex format as string
         """
-        bibtex_list = []
-        for reference in self._references:
-            bibtex_list.append(reference.bibtex_str())
-        return bibtex_list
+        bibtex_list_string = '\n\n'.join(reference.bibtex_str() for reference in self._references)
+        return bibtex_list_string
 
     def create_book(self,fields: dict):
         """

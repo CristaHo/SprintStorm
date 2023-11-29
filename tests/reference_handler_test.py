@@ -54,11 +54,11 @@ class TestReferenceHandler(unittest.TestCase):
         self.reference_handler.create_reference(reftype="book", fields={"author": "mk", "title": "idk", "year": "2001", "publisher": "publisher", "address": "address"})
         self.assertIsInstance(self.reference_handler.get_references()[0], Book)
 
-    def test_get_bibtex_returns_empty_list_when_no_references(self):
-        self.assertEqual(self.reference_handler.get_references_in_bibtex(),[])
+    def test_get_bibtex_returns_empty_string_when_no_references(self):
+        self.assertEqual(self.reference_handler.get_references_in_bibtex(),"")
 
     def test_get_bibtex_returns_list_of_bibtexes(self):
         self.reference_handler.create_reference(reftype="article", fields={"author": "j", "title": "lf", "year": "1999", "journal": "smt", "volume": "5", "number": "4", "pages": "123"})
         self.reference_handler.create_reference(reftype="book", fields={"author": "na", "title": "4", "year": "2012", "publisher": "pb", "address": "home"})
-        self.assertEqual(self.reference_handler.get_references()[1].bibtex_str(),self.reference_handler.get_references_in_bibtex()[1])
-        self.assertEqual(self.reference_handler.get_references()[0].bibtex_str(),self.reference_handler.get_references_in_bibtex()[0])
+        test_string = self.reference_handler.get_references()[0].bibtex_str()+'\n\n'+self.reference_handler.get_references()[1].bibtex_str()
+        self.assertEqual(test_string,self.reference_handler.get_references_in_bibtex())
