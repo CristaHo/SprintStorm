@@ -6,6 +6,18 @@ from flask import Blueprint, request, render_template, redirect
 from src.utils.reference_handler import reference_handler
 
 add_reference_bp = Blueprint('add_reference', __name__)
+choose_reference_bp = Blueprint('choose_reference', __name__)
+
+@choose_reference_bp.route("/choose_reference", methods=["GET"])
+def choose_reference():
+    """
+    Route for choosing reference type.
+    """
+    choice = request.args.get('ref')
+
+    return render_template("add_reference.html", choice=choice)
+
+
 
 @add_reference_bp.route("/add_reference", methods=["GET", "POST"])
 def add_reference():
