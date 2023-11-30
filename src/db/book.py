@@ -41,7 +41,7 @@ def parse_fetchall(rows):
     """
     Parses book fetchall from get_all and fits the rows inside an object
     """
-    # pylint: disable-next=duplicate-code
+    # pylint: disable=duplicate-code
     fields = {
             "key": rows[1],
             "author": rows[2],
