@@ -14,6 +14,11 @@ load_dotenv()
 
 app = Flask(__name__)
 
+@app.route("/ping")
+def ping():
+    """Returns test message"""
+    return {"message": "pong"}
+
 app.register_blueprint(index_bp)
 app.register_blueprint(add_reference_bp)
 app.register_blueprint(choose_reference_bp)
