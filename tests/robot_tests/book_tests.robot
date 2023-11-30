@@ -16,15 +16,24 @@ Add Book With Correct Information
     Submit Reference
     Add Reference Should Succeed  Book Test
 
-Add Article With Correct Information
+Add Book With Missing Field
     Go To Add Reference Page
-    Choose Reference Type  article
-    Set Key  article key
-    Set Author  Tester
-    Set Title  Article Test
-    Set Year  2000
-    Set Journal  test journal
-    Set Volume  12
-    Set Pages  100-200
+    Choose Reference Type  book
+    Set Key  book key2
+    Set Title  Book Test2
+    Set Year  2001
+    Set Publisher  testpublisher
     Submit Reference
-    Add Reference Should Succeed  Article Test
+    Add Reference Should Fail For Missing Field  Author
+
+Add Book With Incorrect Year
+    Go To Add Reference Page
+    Choose Reference Type  book
+    Set Key  book key3
+    Set Author  Tester
+    Set Title  Book Test3
+    Set Year  19987
+    Set Publisher  testpublisher
+    Submit Reference
+    Add Reference Should Fail For Field With Message  year  Please enter a valid year.
+
