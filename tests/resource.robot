@@ -2,7 +2,7 @@
 Library  SeleniumLibrary
 
 *** Variables ***
-${SERVER}  localhost:3000
+${SERVER}  localhost:8000
 ${DELAY}  0 seconds
 ${FRONTPAGE_URL}  http://${SERVER}
 ${ADD_REFERENCE_URL}  http://${SERVER}/add_reference
