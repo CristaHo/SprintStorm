@@ -14,3 +14,6 @@ log.html
 output.xml
 report.html
 selenium-screenshot-*
+
+# reference files
+static/*.bib
