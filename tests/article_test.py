@@ -6,7 +6,7 @@ class TestArticle(unittest.TestCase):
         self.reference = Article(fields={
             "author" : "mk", "title":"idk","year" : "2001",
             "journal" : "journal", "volume" : "volume",
-            "number" : "number", "pages" : "pages"})
+            "pages" : "pages"})
 
     def test_author_takes_constructor_value(self):
         self.assertEqual(self.reference.author, "mk")
