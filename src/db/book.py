@@ -6,7 +6,7 @@ from sqlalchemy import text
 from src.utils.database import db
 from src.references.book import Book
 
-def get_all():
+def get_all() -> list[Book] | None:
     """
     Gets all books from database
     """

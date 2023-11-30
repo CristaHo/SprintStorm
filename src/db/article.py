@@ -6,7 +6,7 @@ from sqlalchemy import text
 from src.utils.database import db
 from src.references.article import Article
 
-def get_all():
+def get_all() -> list[Article] | None:
     """Gets all articles from database"""
     sql = text("SELECT * FROM article")
 

@@ -10,7 +10,9 @@ def get_all():
     books = book.get_all()
     articles = article.get_all()
 
-    return books + articles
+    if books and articles:
+        return books + articles
+    return books if books else articles
 
 def get_references_in_bibtex(references):
     """
