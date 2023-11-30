@@ -1,3 +1,5 @@
+<title>Add reference</title>
+
 <body>
   {% extends "layout.html" %}
   {% block title %}Frontpage{% endblock %}
@@ -36,13 +38,13 @@
       <label for="title">Title:</label>
       <input type="text" name="title" id="title" required><br>
       <label for="year">Year:</label>
-      <input type="text" name="year" id="year" pattern="[0-9]{1,4}" title="Please enter a valid year" required><br>
+      <input type="text" name="year" id="year" pattern="[0-9]{1,4}" title="Please enter a valid year." required><br>
       <label for="journal">Journal:</label>
       <input type="text" name="journal" id="journal" required><br>
       <label for="volume">Volume:</label>
-      <input type="text" name="volume" id="volume" pattern="[0-9]+" title="Please enter a positive number" ><br>
+      <input type="text" name="volume" id="volume" pattern="[0-9]+" title="Please enter a positive number." ><br>
       <label for="pages">Pages:</label>
-      <input type="text" name="pages" id="pages" pattern="\d+(-\d+)?" title="Please enter a single page or a page range (eg. 32 or 101-167)" ><br>
+      <input type="text" name="pages" id="pages" pattern="\d+(-\d+)?" title="Please enter a single page or a page range (eg. 32 or 101-167)." ><br>
       <input type="submit" value="Add reference">
     </form>
     <a href="/">Back to frontpage</a>
