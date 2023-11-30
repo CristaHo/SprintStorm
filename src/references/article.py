@@ -21,7 +21,6 @@ class Article(Reference):
                     "year":fields['year']})
         self._journal = fields['journal']
         self._volume = fields['volume']
-        self._number = fields['number']
         self._pages = fields['pages']
 
     @property
@@ -53,20 +52,6 @@ class Article(Reference):
         self._volume = volume
 
     @property
-    def number(self):
-        """
-        returns number
-        """
-        return self._number
-
-    @number.setter
-    def number(self, number):
-        """
-        Sets number
-        """
-        self._number = number
-
-    @property
     def pages(self):
         """
         returns pages
@@ -89,6 +74,5 @@ class Article(Reference):
     year = {self.year}
     journal = {self.journal}
     volume = {self.volume}
-    number = {self.number}
     pages = {self.pages}
 \u007d"""

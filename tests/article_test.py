@@ -48,14 +48,6 @@ class TestArticle(unittest.TestCase):
         self.reference.volume = "volume2"
         self.assertEqual(self.reference.volume, "volume2")
 
-    def test_number_takes_constructor_value(self):
-        self.reference.number = "number"
-        self.assertEqual(self.reference.number, "number")
-
-    def test_set_number_changes_number(self):
-        self.reference.number = "number2"
-        self.assertEqual(self.reference.number, "number2")
-
     def test_pages_takes_constructor_value(self):
         self.reference.pages = "pages"
         self.assertEqual(self.reference.pages, "pages")
@@ -71,7 +63,6 @@ class TestArticle(unittest.TestCase):
     year = 2001
     journal = journal
     volume = volume
-    number = number
     pages = pages
 }"""
         bibtex_str = self.reference.bibtex_str()
