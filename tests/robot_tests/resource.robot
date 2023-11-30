@@ -16,13 +16,13 @@ Open And Configure Browser
     Set Selenium Speed  ${DELAY}
 
 Front Page Should Be Open
-    Title Should Be  Frontpage
+    Title Should Be  Bibtex maker - Frontpage
 
 Add Reference Page Should Be Open
-    Title Should Be  Add reference
+    Title Should Be  Bibtex maker - Add reference
 
 View Reference Page Should Be Open
-    Title Should Be  View reference
+    Title Should Be  Bibtex maker - View references
 
 Go To Front Page
     Go To  ${FRONTPAGE_URL}
