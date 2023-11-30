@@ -32,6 +32,10 @@ def insert_one(ref):
     db.session.commit()
 
 def parse_fetchall(rows):
+    """
+    Parses article fetchall from get_all and fits the rows inside an object
+    """
+    # pylint: disable=duplicate-code
     fields = {
             "key": rows[1],
             "author": rows[2],
