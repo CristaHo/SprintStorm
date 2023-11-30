@@ -14,7 +14,7 @@ def init_tables(schema_path: str="sql/schema.sql"):
     """
     Reads the schema.sql file (by default sql/schema.sql) 
     which initializes all tables"""
-    with open(schema_path) as file:
+    with open(schema_path, encoding="utf-8") as file:
         sql = text(file.read())
         db.session.execute(sql)
         db.session.commit()
@@ -27,7 +27,7 @@ def drop_tables(drop_tables_path: str="sql/drop_tables.sql"):
     TODO: When users are saved into the database, make sure the user's deletion
     CASCADES the references owned by user.
     """
-    with open(drop_tables_path) as file:
+    with open(drop_tables_path, encoding="utf-8") as file:
         sql = text(file.read())
         db.session.execute(sql)
         db.session.commit()
