@@ -7,10 +7,10 @@ Add Reference Should Succeed
     [Arguments]  ${title}
     Page Should Contain  ${title}
 
-Add Reference Should Fail With Message
+Add Reference Should Fail For Field With Message
     Add Reference Page Should Be Open
-    ${title_error}  Get Element Attribute  id=pages  title
-    [Arguments]  ${message}
+    [Arguments]  ${field}  ${message}
+    ${title_error}  Get Element Attribute  id=${field}  title
     Should Be Equal  ${title_error}  ${message}
 
 Add Reference Should Fail For Missing Field

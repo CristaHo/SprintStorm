@@ -41,4 +41,4 @@ Add Article With Invalid Number Field
     Set Volume  12
     Set Pages  -12-10
     Submit Reference
-    Add Reference Should Fail With Message  Please enter a single page or a page range (eg. 32 or 101-167)
+    Add Reference Should Fail For Field With Message  pages  Please enter a single page or a page range (eg. 32 or 101-167).

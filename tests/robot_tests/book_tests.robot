@@ -25,3 +25,15 @@ Add Book With Missing Field
     Set Publisher  testpublisher
     Submit Reference
     Add Reference Should Fail For Missing Field  Author
+
+Add Book With Incorrect Year
+    Go To Add Reference Page
+    Choose Reference Type  book
+    Set Key  book key3
+    Set Author  Tester
+    Set Title  Book Test3
+    Set Year  19987
+    Set Publisher  testpublisher
+    Submit Reference
+    Add Reference Should Fail For Field With Message  year  Please enter a valid year.
+
