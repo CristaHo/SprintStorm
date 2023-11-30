@@ -2,11 +2,10 @@
 Blueprint for handling index-page.
 """
 
-from flask import Blueprint, render_template
+from flask import render_template
+from src.app import app
 
-index_bp = Blueprint('index', __name__)
-
-@index_bp.route("/")
+@app.route("/")
 def index():
     """
     Route for viewing index-page.

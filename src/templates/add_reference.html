@@ -21,6 +21,7 @@
         <input type="text" name="year" id="year" pattern="[0-9]{1,4}" title="Please enter a valid year." required><br>
         <label for="publisher">Publisher:</label>
         <input type="text" name="publisher" id="publisher" required><br>
+        <input type="hidden" id="reftype" name="reftype" value="book">
         <input type="submit" value="Add reference">
     </form>
     <a href="/">Back to frontpage</a>
@@ -40,6 +41,7 @@
       <input type="text" name="volume" id="volume" pattern="[0-9]+" title="Please enter a positive number" ><br>
       <label for="pages">Pages:</label>
       <input type="text" name="pages" id="pages" pattern="\d+(-\d+)?" title="Please enter a single page or a page range (eg. 32 or 101-167)" ><br>
+      <input type="hidden" id="reftype" name="reftype" value="article">
       <input type="submit" value="Add reference">
     </form>
     <a href="/">Back to frontpage</a>

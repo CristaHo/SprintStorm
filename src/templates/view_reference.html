@@ -3,8 +3,6 @@
 <div>
     <ol>
         <li>
-            <p>Alber Einstein: <i>Zur Elektrodynamik bewegter K ̈orper. (German) [On the elect-
-                rodynamics of moving bodies].</i> 1905 </p>
             {% for reference in references %}
                 <p>{{ reference.author }} <i> {{ reference.title }}</i> {{ reference.year }}</p>
             {% endfor %}
