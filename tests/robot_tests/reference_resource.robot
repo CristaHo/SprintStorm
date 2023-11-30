@@ -46,6 +46,10 @@ Set Publisher
     [Arguments]  ${publisher}
     Input Text  publisher  ${publisher}
 
+Set Address
+    [Arguments]  ${address}
+    Input Text  address  ${address}
+
 Set Journal
     [Arguments]  ${journal}
     Input Text  journal  ${journal}

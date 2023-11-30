@@ -20,12 +20,14 @@ def add_reference():
         year = request.form['year']
         if request.form["reftype"] == "book":
             publisher = request.form['publisher']
+            address = request.form['address']
 
             book.insert_one({
                 "author": author, 
                 "title": title, 
                 "year": year, 
-                "publisher": publisher
+                "publisher": publisher,
+                "address": address
                 })
 
         if request.form["reftype"] == "article":
@@ -43,8 +45,6 @@ def add_reference():
                 })
 
         return redirect("/view_reference")
-
-        # Add processing for reference into database
 
     return None
 
