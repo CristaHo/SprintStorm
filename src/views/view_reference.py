@@ -21,6 +21,6 @@ def downloader_bib():
     """
     Route for downloading .bib file
     """
-    bib_list = get_references_in_bibtex()
+    bib_list = get_references_in_bibtex(get_all())
     path = create_bib_file(bib_list)
     return send_file(path, as_attachment = True)
