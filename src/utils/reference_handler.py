@@ -49,10 +49,9 @@ class ReferenceHandler:
         Creates .bib file from references to static folder
         """
         path = "static/bib-file.bib"
-        file = open(path,"w+")
-        for line in bib_string:
-            file.write(line)
-        file.close() 
+        with open(path,"w+", encoding="utf-8") as file:
+            for line in bib_string:
+                file.write(line)
         return path
 
     def create_book(self,fields: dict):
