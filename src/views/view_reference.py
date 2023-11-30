@@ -4,8 +4,8 @@ Blueprint for handling viewing references.
 
 from flask import render_template, send_file
 from src.app import app
-from src.db.reference import get_all
-from src.utils.reference_handler import reference_handler
+from src.db.reference import get_all, get_references_in_bibtex, create_bib_file
+
 
 @app.route("/view_reference")
 def view_reference():
@@ -21,6 +21,6 @@ def downloader_bib():
     """
     Route for downloading .bib file
     """
-    bib_list = reference_handler.get_references_in_bibtex()
-    path = reference_handler.create_bib_file(bib_list)
+    bib_list = get_references_in_bibtex()
+    path = create_bib_file(bib_list)
     return send_file(path, as_attachment = True)
