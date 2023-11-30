@@ -1,14 +1,17 @@
 <body>
-    {% block content %}
+  {% extends "layout.html" %}
+  {% block title %}Frontpage{% endblock %}
+  {% block content %}
     <form action="/choose_reference">
         <label for="ref">Choose reference type:</label>
-        <select id="ref" name="ref">
+        <select id="ref" name="ref" required>
+          <option value="" disabled selected hidden>Choose reference type...</option>
           <option value="book">Book</option>
           <option value="article">Article</option>
         </select>
         <input type="submit" value="Select">
       </form>
-    
+    <hr>
       {% if choice == "book" %}
       <form action="/add_reference" method="POST">
         <label for="key">Key:</label>

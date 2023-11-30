@@ -1,6 +1,10 @@
-<title>Frontpage</title>
 <body>
-    <h1>Frontpage</h1>
+    {% extends "layout.html" %}
+    {% block title %}Frontpage{% endblock %}
+    {% block content %}
+
     <a href="/add_reference">Add/choose reference</a>
     <a href="/view_reference">View references</a>
+    <hr>
+    {% endblock %}
 </body>
