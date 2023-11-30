@@ -16,6 +16,7 @@ app = Flask(__name__)
 
 @app.route("/ping")
 def ping():
+    """Returns test message"""
     return {"message": "pong"}
 
 app.register_blueprint(index_bp)
