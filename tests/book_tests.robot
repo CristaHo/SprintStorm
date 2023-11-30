@@ -15,3 +15,13 @@ Add Book With Correct Information
     Set Publisher  testpublisher
     Submit Reference
     Add Reference Should Succeed  Book Test
+
+Add Book With Missing Field
+    Go To Add Reference Page
+    Choose Reference Type  book
+    Set Key  book key2
+    Set Title  Book Test2
+    Set Year  2001
+    Set Publisher  testpublisher
+    Submit Reference
+    Add Reference Should Fail For Missing Field  Author
