@@ -13,6 +13,7 @@ Add Book With Correct Information
     Set Title  Book Test
     Set Year  2000
     Set Publisher  testpublisher
+    Set Address  Teststreet 10
     Submit Reference
     Add Reference Should Succeed  Book Test
 
@@ -23,6 +24,7 @@ Add Book With Missing Field
     Set Title  Book Test2
     Set Year  2001
     Set Publisher  testpublisher
+    Set Address  Teststreet 10
     Submit Reference
     Add Reference Should Fail For Missing Field  Author
 
@@ -34,6 +36,7 @@ Add Book With Incorrect Year
     Set Title  Book Test3
     Set Year  19987
     Set Publisher  testpublisher
+    Set Address  Teststreet 10
     Submit Reference
     Add Reference Should Fail For Field With Message  year  Please enter a valid year.
 

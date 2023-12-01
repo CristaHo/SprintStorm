@@ -1,1 +1,1 @@
-poetry run gunicorn --chdir src wsgi:app
+poetry run gunicorn src.wsgi:app
