@@ -1,7 +1,7 @@
 # Retrospektiivi
 
 - *Pidetään toinen palaveri alkuviikosta. - start*
-- Isot muutoksia loppuviikosta. - less of
+- Isoja muutoksia loppuviikosta. - less of
 - Pidetään muut paremmin ajantasalla siitä mitä tehdään. - more of 
 - Testit toteutetaan ajallaan. - more of
 - Taskit jaettu tasaisesti. - continue
