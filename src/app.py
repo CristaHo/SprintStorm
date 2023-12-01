@@ -18,6 +18,7 @@ def ping():
     return {"message": "pong"}
 
 import src.views.index
+import src.views.error
 import src.views.view_reference
 import src.views.add_reference
 
