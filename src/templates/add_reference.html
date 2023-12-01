@@ -29,7 +29,7 @@
         <input type="hidden" id="reftype" name="reftype" value="book">
         <input type="submit" value="Add reference">
     </form>
-    <a href="/">Back to frontpage</a>
+    
     {% elif choice == "article" %}
     <form action="/add_reference" method="POST">
       <label for="key">Key:</label>
@@ -49,10 +49,10 @@
       <input type="hidden" id="reftype" name="reftype" value="article">
       <input type="submit" value="Add reference">
     </form>
-    <a href="/">Back to frontpage</a>
     {% else %}
      <div></div>
     {% endif %}
+    <a href="/">Back to frontpage</a>
     {% endblock %}
     </body>
     
