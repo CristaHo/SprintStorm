@@ -1,6 +1,7 @@
 """
 Handles reference things
 """
+import os
 from src.db import book, article
 
 def get_all():
@@ -25,7 +26,8 @@ def create_bib_file(bib_string):
     """
     Creates .bib file from references to static folder
     """
-    path = "static/bib-file.bib"
+    # path = <project_root>/static/<filename
+    path = os.getcwd() + "/static/bib-file.bib"
     with open(path,"w+", encoding="utf-8") as file:
         for line in bib_string:
             file.write(line)
