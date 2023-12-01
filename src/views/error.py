@@ -6,7 +6,7 @@ from flask import render_template
 from src.app import app
 
 @app.route("/error")
-def error(message):
+def error(message="Something unexpected happened."):
     """
     route for showing error message
     """

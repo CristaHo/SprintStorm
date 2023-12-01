@@ -1,6 +1,14 @@
 <body>
     {% extends "layout.html" %}
-    <p>{error_message}<p>
+    {% block title %}Error{% endblock %}
+    {% block content %}
+    <a href="/add_reference">Add/choose reference</a>
+    <a href="/view_reference">View references</a>
+    <hr>
+    <h2>Error:</h2>
+    <p>{{error_message}}<p>
+    <hr>
 
     <a href="/">Back to frontpage</a>
+    {% endblock %}
 </body>
