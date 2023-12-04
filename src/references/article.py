@@ -14,6 +14,7 @@ class Article(Reference):
     """
         Class for article references, extends Reference
     """
+    # pylint: disable=duplicate-code
     def __init__(self, fields):
         super().__init__(
             fields={
