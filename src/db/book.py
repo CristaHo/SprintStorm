@@ -25,9 +25,10 @@ def insert_one(ref):
     """
     Inserts one book into database
     """
-    sql = text("INSERT INTO book (author, title, year, publisher, address)"
-               " VALUES (:author, :title, :year, :publisher, :address)")
+    sql = text("INSERT INTO book (cite_key, author, title, year, publisher, address)"
+               " VALUES (:key, :author, :title, :year, :publisher, :address)")
     parsed_reference = {
+        "key": ref["key"],
         "author": ref["author"],
         "title": ref["title"],
         "year": ref["year"],

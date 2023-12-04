@@ -16,9 +16,12 @@ class Article(Reference):
     """
     def __init__(self, fields):
         super().__init__(
-            fields={"author":fields['author'],
-                    "title":fields['title'],
-                    "year":fields['year']})
+            fields={
+                "key": fields['key'],
+                "author":fields['author'],
+                "title":fields['title'],
+                "year":fields['year']
+                })
         self._journal = fields['journal']
         self._volume = fields['volume']
         self._pages = fields['pages']
@@ -68,7 +71,7 @@ class Article(Reference):
     def bibtex_str(self) -> str:
         # \u007b = {
         # \u007d = }
-        return f"""@article\u007b{self.unique_id}
+        return f"""@article\u007b{self.key}
     title = {self.title}
     author = {self.author}
     year = {self.year}

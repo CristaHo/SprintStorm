@@ -14,10 +14,24 @@ class Reference:
         title: title of the reference
         year: year when reference was published
         """
+        self._user_key = fields['key']
         self._author = fields['author']
         self._title = fields['title']
         self._year = fields['year']
-        self.unique_id = "TODO"
+
+    @property
+    def key(self):
+        """
+        Returns the author
+        """
+        return self._user_key
+
+    @key.setter
+    def key(self, key):
+        """
+        Sets the author
+        """
+        self._user_key = key
 
     @property
     def author(self):
@@ -68,7 +82,7 @@ class Reference:
         """
         # \u007b = {
         # \u007d = }
-        return f"""@reference\u007b{self.unique_id}
+        return f"""@reference\u007b{self.key}
     title = {self.title}
     author = {self.author}
     year = {self.year}
