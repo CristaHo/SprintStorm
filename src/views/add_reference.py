@@ -15,6 +15,7 @@ def add_reference():
         return render_template("add_reference.html")
 
     if request.method == "POST":
+        key = request.form['key']
         author = request.form['author']
         title = request.form['title']
         year = request.form['year']
@@ -23,6 +24,7 @@ def add_reference():
             address = request.form['address']
 
             book.insert_one({
+                "key": key,
                 "author": author, 
                 "title": title, 
                 "year": year, 
@@ -36,6 +38,7 @@ def add_reference():
             pages = request.form['pages']
 
             article.insert_one({
+                "key": key,
                 "author": author, 
                 "title": title, 
                 "year": year, 

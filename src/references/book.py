@@ -14,9 +14,12 @@ class Book(Reference):
     """
     def __init__(self, fields):
         super().__init__(
-            fields={"author":fields['author'],
-                    "title":fields['title'],
-                    "year":fields['year']})
+            fields={
+                "key": fields['key'],
+                "author":fields['author'],
+                "title":fields['title'],
+                "year":fields['year']
+                })
         self._publisher = fields['publisher']
         self._address = fields['address']
 
@@ -51,7 +54,7 @@ class Book(Reference):
     def bibtex_str(self) -> str:
         # \u007b = {
         # \u007d = }
-        string = f"""@book\u007b{self.unique_id}
+        string = f"""@book\u007b{self.key}
     title = {self.title}
     author = {self.author}
     year = {self.year}

@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS reference (
 
 CREATE TABLE IF NOT EXISTS book (
     id SERIAL PRIMARY KEY, 
-    user_key TEXT,
+    cite_key TEXT,
     author TEXT, 
     title TEXT, 
     year INTEGER, 
@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS book (
 
 CREATE TABLE IF NOT EXISTS article (
     id SERIAL PRIMARY KEY, 
-    user_key TEXT, 
+    cite_key TEXT, 
     author TEXT,
     title TEXT,
     year INTEGER,

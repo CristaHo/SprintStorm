@@ -4,7 +4,7 @@ from src.references.article import Article
 class TestArticle(unittest.TestCase):
     def setUp(self):
         self.reference = Article(fields={
-            "author" : "mk", "title":"idk","year" : "2001",
+            "key": "Someuniquekey", "author" : "mk", "title":"idk","year" : "2001",
             "journal" : "journal", "volume" : "volume",
             "pages" : "pages"})
 
@@ -57,7 +57,7 @@ class TestArticle(unittest.TestCase):
         self.assertEqual(self.reference.pages, "pages2")
 
     def test_bibtex_str(self):
-        example_str = """@article{TODO
+        example_str = """@article{Someuniquekey
     title = idk
     author = mk
     year = 2001

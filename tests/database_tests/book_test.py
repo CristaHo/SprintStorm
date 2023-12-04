@@ -17,6 +17,7 @@ class BookDatabaseTest(TestCase):
 
     def test_book_insert_one_with_correct_object_is_correctly_saved_to_db(self):
         test_book = {
+            "key": "key",
             "author": "Me",
             "title": "My best book", 
             "year": 2023,
@@ -34,6 +35,7 @@ class BookDatabaseTest(TestCase):
             self.assertEqual(pre_result, None)
             self.assertIsInstance(result[0], Book)
 
+            self.assertEqual(result[0].key, "key")
             self.assertEqual(result[0].author, "Me")
             self.assertEqual(result[0].title, "My best book")
             self.assertEqual(result[0].year, 2023)
@@ -44,6 +46,7 @@ class BookDatabaseTest(TestCase):
 
     def test_book_get_all_multiple_references_returns_all(self):
         test_book = {
+            "key": "key",
             "author": "Me",
             "title": "My best book", 
             "year": 2023,
@@ -52,6 +55,7 @@ class BookDatabaseTest(TestCase):
         }
 
         other_test_book = {
+            "key": "otherkey",
             "author": "You",
             "title": "Your best book", 
             "year": 2020,

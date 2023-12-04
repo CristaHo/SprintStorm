@@ -4,7 +4,7 @@ from src.references.book import Book
 class TestBook(unittest.TestCase):
     def setUp(self):
         self.reference = Book(fields={
-            "author":"mk", "title":"idk","year":"2001",
+            "key": "Someuniquekey", "author":"mk", "title":"idk","year":"2001",
             "publisher":"publisher","address":"address"})
 
     def test_author_takes_constructor_value(self):
@@ -48,7 +48,7 @@ class TestBook(unittest.TestCase):
         self.assertEqual(self.reference.address, "address2")
 
     def test_bibtex_str(self):
-        example_str = """@book{TODO
+        example_str = """@book{Someuniquekey
     title = idk
     author = mk
     year = 2001
