@@ -3,6 +3,7 @@ Here is defined all of the values read from environment variables
 """
 
 from os import getenv
+from src.utils.logging import log
 
 ENV_OPTIOS = ["production", "development", "staging", "test"]
 
@@ -29,7 +30,7 @@ def env() -> str:
 
     curr_env = getenv("ENVIRONMENT")
     if not curr_env or curr_env not in ENV_OPTIOS:
-        print("ENVIRONMENT not set or incorrect, defaulting to \"production\"...")
+        log.debug("ENVIRONMENT not set or incorrect, defaulting to \"production\"...")
         curr_env = "production"
     return str(curr_env)
 

@@ -5,6 +5,7 @@ Handles article databse
 from sqlalchemy import text
 from src.utils.database import db
 from src.references.article import Article
+from src.utils.logging import log
 
 def get_all() -> list[Article] | None:
     """Gets all articles from database"""
@@ -17,6 +18,7 @@ def get_all() -> list[Article] | None:
             articles.append(Article(parse_fetchall(item)))
         return articles
 
+    log.info("No articles found from database.")
     return None
 
 
