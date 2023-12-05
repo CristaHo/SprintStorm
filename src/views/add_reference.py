@@ -53,7 +53,7 @@ def add_reference():
 
         return redirect("/view_reference")
 
-    log.warn("No correct method given for request")
+    log.warning("No correct method given for request")
     return None
 
 @app.route("/choose_reference", methods=["GET"])
