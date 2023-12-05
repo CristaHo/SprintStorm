@@ -6,15 +6,20 @@ from flask import Flask
 from dotenv import load_dotenv
 
 from src.utils import config
+from src.utils.logging import log
 
 load_dotenv()
 
 app = Flask(__name__)
 
+log.info("Starting application...")
+log.info(f"Current environment: {config.env()}")
+log.info(f"Current POSTGRES_URL: {config.db_url()}")
 
 @app.route("/ping")
 def ping():
     """Returns test message"""
+    log.info("Here we are")
     return {"message": "pong"}
 
 import src.views.index

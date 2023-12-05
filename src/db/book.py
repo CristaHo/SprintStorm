@@ -5,6 +5,7 @@ from sqlalchemy import text
 
 from src.utils.database import db
 from src.references.book import Book
+from src.utils.logging import log
 
 def get_all() -> list[Book] | None:
     """
@@ -19,6 +20,7 @@ def get_all() -> list[Book] | None:
             books.append(Book(parse_fetchall(item)))
         return books
 
+    log.info("No books found from database.")
     return None
 
 def insert_one(ref):
