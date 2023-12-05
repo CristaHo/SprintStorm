@@ -17,8 +17,7 @@ CREATE TABLE IF NOT EXISTS book (
     author TEXT, 
     title TEXT, 
     year INTEGER, 
-    publisher TEXT,
-    address TEXT
+    publisher TEXT
 );
 
 CREATE TABLE IF NOT EXISTS article (
