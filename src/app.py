@@ -19,7 +19,6 @@ log.info(f"Current POSTGRES_URL: {config.db_url()}")
 @app.route("/ping")
 def ping():
     """Returns test message"""
-    log.info("Here we are")
     return {"message": "pong"}
 
 import src.views.index
