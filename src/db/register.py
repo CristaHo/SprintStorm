@@ -14,6 +14,5 @@ def insert_new_user(username, password):
         db.session.execute(sql, {"username":username, "password":hash_value})
         db.session.commit()
         return True
-    except:
-        error = "Error"
+    except Exception:
         return False
