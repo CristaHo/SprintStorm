@@ -19,9 +19,11 @@ class TestDatabaseUtils(TestCase):
         is_article = self.table_exists("article")
         is_book = self.table_exists("book")
         is_reference = self.table_exists("reference")
+        is_category = self.table_exists("category")
         self.assertEqual(is_article, exist)
         self.assertEqual(is_book, exist)
         self.assertEqual(is_reference, exist)
+        self.assertEqual(is_category, exist)
 
     def test_all_tables_exist(self):
         self.all_tables_exist()

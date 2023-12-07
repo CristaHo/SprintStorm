@@ -1,0 +1,21 @@
+<body>
+    {% extends "layout.html" %}
+    {% block title %}Add category{% endblock %}
+    {% block content %}
+      <form action="/add_category" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required><br>
+        <input type="submit" value="Add category">
+      </form>
+      <br>
+      {% for category in categories %}
+        <p>{{ category.name }} 
+            <form action="/delete_category" method="POST">
+            <input type="hidden" name="id" value="{{ category.id }}">
+            <button type="submit">Delete</button>
+            </form>
+        </p>
+      {% endfor %}
+      <a href="/">Back to frontpage</a>
+    {% endblock %}
+</body>
