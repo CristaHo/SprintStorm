@@ -5,11 +5,11 @@
 <hr>
 <div>
     <ol>
-        <li>
+
             {% for reference in references %}
-                <p>{{ reference.author }} <i> {{ reference.title }}</i> {{ reference.year }}</p>
+                <li>{{ reference.author }} <i> {{ reference.title }}</i> {{ reference.year }}</li>
             {% endfor %}
-        </li>
+
     </ol>
 </div>
 <p><a href="/view_reference/download">Download reference file</a></p>
