@@ -7,13 +7,13 @@ from src.utils.database import db
 from src.references.book import Book
 from src.utils.logging import log
 
-def get_all() -> list[Book] | None:
+def get_all(uid) -> list[Book] | None:
     """
     Gets all books from database
     """
-    sql = text("SELECT * FROM book")
+    sql = text("SELECT * FROM book WHERE user_id =:uid")
 
-    result = db.session.execute(sql).fetchall()
+    result = db.session.execute(sql,{"uid":uid}).fetchall()
     if result:
         books = []
         for item in result:
@@ -27,14 +27,15 @@ def insert_one(ref):
     """
     Inserts one book into database
     """
-    sql = text("INSERT INTO book (cite_key, author, title, year, publisher)"
-               " VALUES (:key, :author, :title, :year, :publisher)")
+    sql = text("INSERT INTO book (cite_key, author, title, year, publisher,user_id)"
+               " VALUES (:key, :author, :title, :year, :publisher, :user_id)")
     parsed_reference = {
         "key": ref["key"],
         "author": ref["author"],
         "title": ref["title"],
         "year": ref["year"],
-        "publisher": ref["publisher"]
+        "publisher": ref["publisher"],
+        "user_id": ref["user_id"]
     }
     db.session.execute(sql, parsed_reference)
     db.session.commit()

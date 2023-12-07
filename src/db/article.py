@@ -7,11 +7,11 @@ from src.utils.database import db
 from src.references.article import Article
 from src.utils.logging import log
 
-def get_all() -> list[Article] | None:
+def get_all(uid) -> list[Article] | None:
     """Gets all articles from database"""
-    sql = text("SELECT * FROM article")
+    sql = text("SELECT * FROM article WHERE user_id =:uid")
 
-    result = db.session.execute(sql).fetchall()
+    result = db.session.execute(sql,{"uid":uid}).fetchall()
     if result:
         articles = []
         for item in result:
@@ -25,12 +25,12 @@ def get_all() -> list[Article] | None:
 
 def insert_one(ref):
     """Inserts one article into database"""
-    sql = text("INSERT INTO article (cite_key, author, title, year, journal, volume, pages)"
-               " VALUES (:key, :author, :title, :year, :journal, :volume, :pages)")
+    sql = text("INSERT INTO article (cite_key, author, title, year, journal, volume, pages,user_id)"
+               " VALUES (:key, :author, :title, :year, :journal, :volume, :pages,:user_id)")
     db.session.execute(sql, {"key": ref["key"], "author":ref["author"],
                              "title":ref["title"], "year":ref["year"],
                              "journal":ref["journal"], "volume":ref["volume"],
-                             "pages":ref["pages"]})
+                             "pages":ref["pages"],"user_id":ref["user_id"]})
     db.session.commit()
 
 def parse_fetchall(rows):

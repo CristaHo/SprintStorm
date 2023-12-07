@@ -12,6 +12,8 @@ load_dotenv()
 
 app = Flask(__name__)
 
+app.config["SECRET_KEY"]= config.secret_key()
+
 log.info("Starting application...")
 log.info(f"Current environment: {config.env()}")
 log.info(f"Current POSTGRES_URL: {config.db_url()}")

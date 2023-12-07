@@ -2,7 +2,7 @@
 Blueprint for handling the addition of new references.
 """
 
-from flask import request, render_template, redirect
+from flask import request, render_template, redirect,session,flash,url_for
 from src.app import app
 from src.db import book, article
 from src.utils.logging import log
@@ -13,6 +13,9 @@ def add_reference():
     Route for handling adding a new reference.
     """
     if request.method == "GET":
+        if session.get("uid") is None:
+            flash("Login needed to view this page")
+            return redirect(url_for('login'))
         return render_template("add_reference.html")
 
     if request.method == "POST":
@@ -21,6 +24,7 @@ def add_reference():
         author = request.form['author']
         title = request.form['title']
         year = request.form['year']
+        user_id = session.get("uid")
         if request.form["reftype"] == "book":
             publisher = request.form['publisher']
             address = request.form['address']
@@ -32,7 +36,8 @@ def add_reference():
                 "title": title, 
                 "year": year, 
                 "publisher": publisher,
-                "address": address
+                "address": address,
+                "user_id": user_id
                 })
 
         if request.form["reftype"] == "article":
@@ -48,7 +53,8 @@ def add_reference():
                 "year": year, 
                 "journal": journal,
                 "volume": volume,
-                "pages": pages
+                "pages": pages,
+                "user_id":user_id
                 })
 
         return redirect("/view_reference")
