@@ -2,7 +2,7 @@
 """
 
 from werkzeug.security import generate_password_hash
-from sqlalchemy import text
+from sqlalchemy import text, exc
 from src.utils.database import db
 
 def insert_new_user(username, password):
@@ -14,5 +14,5 @@ def insert_new_user(username, password):
         db.session.execute(sql, {"username":username, "password":hash_value})
         db.session.commit()
         return True
-    except sqlalchemy.exc.IntegrityError:
+    except exc.IntegrityError:
         return False
