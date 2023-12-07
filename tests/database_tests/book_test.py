@@ -21,8 +21,7 @@ class BookDatabaseTest(TestCase):
             "author": "Me",
             "title": "My best book", 
             "year": 2023,
-            "publisher": "Edelleen minä", 
-            "address": "Manaattikuja 69"
+            "publisher": "Edelleen minä"
         }
 
         with app.app_context():
@@ -40,7 +39,6 @@ class BookDatabaseTest(TestCase):
             self.assertEqual(result[0].title, "My best book")
             self.assertEqual(result[0].year, 2023)
             self.assertEqual(result[0].publisher, "Edelleen minä")
-            self.assertEqual(result[0].address, "Manaattikuja 69")
         else:
             raise AssertionError("No result from database")
 

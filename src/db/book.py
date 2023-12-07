@@ -5,6 +5,7 @@ from sqlalchemy import text
 
 from src.utils.database import db
 from src.references.book import Book
+from src.utils.logging import log
 
 def get_all() -> list[Book] | None:
     """
@@ -19,21 +20,21 @@ def get_all() -> list[Book] | None:
             books.append(Book(parse_fetchall(item)))
         return books
 
+    log.info("No books found from database.")
     return None
 
 def insert_one(ref):
     """
     Inserts one book into database
     """
-    sql = text("INSERT INTO book (cite_key, author, title, year, publisher, address)"
-               " VALUES (:key, :author, :title, :year, :publisher, :address)")
+    sql = text("INSERT INTO book (cite_key, author, title, year, publisher)"
+               " VALUES (:key, :author, :title, :year, :publisher)")
     parsed_reference = {
         "key": ref["key"],
         "author": ref["author"],
         "title": ref["title"],
         "year": ref["year"],
-        "publisher": ref["publisher"],
-        "address": ref["address"]
+        "publisher": ref["publisher"]
     }
     db.session.execute(sql, parsed_reference)
     db.session.commit()
@@ -48,8 +49,7 @@ def parse_fetchall(rows):
             "author": rows[2],
             "title": rows[3],
             "year": rows[4],
-            "publisher": rows[5],
-            "address": rows[6],
+            "publisher": rows[5]
             }
 
     return fields

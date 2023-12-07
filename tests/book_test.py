@@ -39,21 +39,12 @@ class TestBook(unittest.TestCase):
         self.reference.publisher = "publisher2"
         self.assertEqual(self.reference.publisher, "publisher2")
 
-    def test_address_takes_constructor_value(self):
-        self.reference.address = "address"
-        self.assertEqual(self.reference.address, "address")
-
-    def test_set_address_changes_address(self):
-        self.reference.address = "address2"
-        self.assertEqual(self.reference.address, "address2")
-
     def test_bibtex_str(self):
         example_str = """@book{Someuniquekey
     title = idk
     author = mk
     year = 2001
     publisher = publisher
-    address = address
 }"""
         bibtex_str = self.reference.bibtex_str()
         self.assertEqual(bibtex_str, example_str)
