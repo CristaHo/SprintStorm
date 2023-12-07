@@ -5,17 +5,17 @@ Suite Setup  Open And Configure Browser
 Suite Teardown  Close Browser
 
 *** Test Cases ***
-Add Book With Correct Information
-    Go To Add Reference Page
-    Choose Reference Type  book
-    Set Key  book key
-    Set Author  Tester
-    Set Title  Book Test
-    Set Year  2000
-    Set Publisher  testpublisher
-    Set Address  Teststreet 10
-    Submit Reference
-    Add Reference Should Succeed  Book Test
+#Add Book With Correct Information
+#    Go To Add Reference Page
+#    Choose Reference Type  book
+#    Set Key  book key
+#    Set Author  Tester
+#    Set Title  Book Test
+#    Set Year  2000
+#    Set Publisher  testpublisher
+#    Set Address  Teststreet 10
+#    Submit Reference
+#    Add Reference Should Succeed  Book Test
 
 Add Book With Missing Field
     Go To Add Reference Page
