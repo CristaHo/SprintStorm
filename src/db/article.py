@@ -19,7 +19,7 @@ def get_all(uid) -> list[Article] | None:
         return articles
 
     log.info("No articles found from database.")
-    return None
+    return []
 
 
 
