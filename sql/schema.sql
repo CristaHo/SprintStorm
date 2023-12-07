@@ -24,7 +24,8 @@ CREATE TABLE IF NOT EXISTS book (
     title TEXT, 
     year INTEGER, 
     publisher TEXT,
-    category_id INTEGER REFERENCES category
+    category_id INTEGER REFERENCES category,
+    user_id INTEGER REFERENCES users
 );
 
 CREATE TABLE IF NOT EXISTS article (
@@ -36,5 +37,6 @@ CREATE TABLE IF NOT EXISTS article (
     journal TEXT,
     volume INTEGER,
     pages TEXT,
-    category_id INTEGER REFERENCES category
+    category_id INTEGER REFERENCES category,
+    user_id INTEGER REFERENCES users
 );

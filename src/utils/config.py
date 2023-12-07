@@ -52,3 +52,12 @@ def port() -> int:
     # handle incorrect value and None
     except (ValueError, TypeError):
         return 3000
+
+def secret_key() -> str:
+    """ Returns secret key from env
+    """
+    s_key = getenv("SECRET_KEY")
+
+    if not s_key:
+        return "testkey"
+    return s_key

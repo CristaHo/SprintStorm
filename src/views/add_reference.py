@@ -2,7 +2,7 @@
 Blueprint for handling the addition of new references.
 """
 
-from flask import request, render_template, redirect
+from flask import request, render_template, redirect,session,flash,url_for
 from src.app import app
 from src.db import book, article, category
 from src.utils.logging import log
@@ -13,6 +13,9 @@ def add_reference():
     Route for handling adding a new reference.
     """
     if request.method == "GET":
+        if session.get("uid") is None:
+            flash("Login needed to view this page")
+            return redirect(url_for('login'))
         return render_template("add_reference.html")
 
     if request.method == "POST":
@@ -22,6 +25,7 @@ def add_reference():
         title = request.form['title']
         year = request.form['year']
         category_id = request.form['category']
+        user_id = session.get("uid")
         if request.form["reftype"] == "book":
             publisher = request.form['publisher']
             address = request.form['address']
@@ -34,7 +38,8 @@ def add_reference():
                 "year": year, 
                 "publisher": publisher,
                 "address": address,
-                "category_id": category_id
+                "category_id": category_id,
+                "user_id": user_id
                 })
 
         if request.form["reftype"] == "article":
@@ -51,7 +56,8 @@ def add_reference():
                 "journal": journal,
                 "volume": volume,
                 "pages": pages,
-                "category_id": category_id
+                "category_id": category_id,
+                "user_id":user_id
                 })
 
         return redirect("/view_reference")
@@ -64,7 +70,7 @@ def choose_reference():
     """
     Route for choosing reference type.
     """
-    user_id = 1 # ADD WAY TO GET USER_ID
+    user_id = session.get("uid")
     choice = request.args.get('ref')
     log.info(f"Reftype \"{choice}\" chosen")
     categories = category.get_all(user_id)

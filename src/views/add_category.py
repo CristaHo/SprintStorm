@@ -2,7 +2,7 @@
 File to handle adding/deleting category route
 """
 
-from flask import request, render_template, redirect
+from flask import request, render_template, redirect,session
 from src.app import app
 from src.db import category
 from src.utils.logging import log
@@ -12,7 +12,7 @@ def add_category():
     """
     Route to handle adding a new category
     """
-    user_id = 1 #ADD WAY TO GET CURRENT USER ID
+    user_id = session.get("uid")
     if request.method == "GET":
         categories = category.get_all(user_id)
         log.info(f"All users categories: {categories}")
