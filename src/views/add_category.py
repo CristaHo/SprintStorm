@@ -1,5 +1,6 @@
 """
-File to handle adding/deleting category route"""
+File to handle adding/deleting category route
+"""
 
 from flask import request, render_template, redirect
 from src.app import app
@@ -11,7 +12,6 @@ def add_category():
     """
     Route to handle adding a new category
     """
-    log.info("hello")
     user_id = 1 #ADD WAY TO GET CURRENT USER ID
     if request.method == "GET":
         categories = category.get_all(user_id)

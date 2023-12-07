@@ -23,6 +23,10 @@ Choose Reference Type
     Select From List by Value  id=ref  ${type}
     Click Button  Select
 
+Choose Category Type
+    [Arguments]  ${type}
+    Select From List By Value  id=category  ${type}
+    
 Submit Reference
     Click Button  Add reference
 

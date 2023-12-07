@@ -3,6 +3,17 @@
     {% block title %}View references{% endblock %}
     {% block content %}
 <hr>
+<form action="/view_reference" method="POST">
+<label for="category">Filter by category:</label>
+<select id="category" name="category">
+    {% for cat in categories %}
+    <option value="{{ cat.id }}">{{ cat.name }}</option>
+    {% endfor %}
+</select>
+<input type="submit" value="Filter">
+</form>
+<h3>References:</h3>
+<br>
 <div>
     <ol>
 

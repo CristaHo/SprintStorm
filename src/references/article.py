@@ -21,11 +21,13 @@ class Article(Reference):
                 "key": fields['key'],
                 "author":fields['author'],
                 "title":fields['title'],
-                "year":fields['year']
+                "year":fields['year'],
+                "category_id":fields['category_id']
                 })
         self._journal = fields['journal']
         self._volume = fields['volume']
         self._pages = fields['pages']
+
 
     @property
     def journal(self):

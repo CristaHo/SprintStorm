@@ -4,7 +4,7 @@ Blueprint for handling the addition of new references.
 
 from flask import request, render_template, redirect
 from src.app import app
-from src.db import book, article
+from src.db import book, article, category
 from src.utils.logging import log
 
 @app.route("/add_reference", methods=["GET", "POST"])
@@ -21,6 +21,7 @@ def add_reference():
         author = request.form['author']
         title = request.form['title']
         year = request.form['year']
+        category_id = request.form['category']
         if request.form["reftype"] == "book":
             publisher = request.form['publisher']
             address = request.form['address']
@@ -32,7 +33,8 @@ def add_reference():
                 "title": title, 
                 "year": year, 
                 "publisher": publisher,
-                "address": address
+                "address": address,
+                "category_id": category_id
                 })
 
         if request.form["reftype"] == "article":
@@ -48,7 +50,8 @@ def add_reference():
                 "year": year, 
                 "journal": journal,
                 "volume": volume,
-                "pages": pages
+                "pages": pages,
+                "category_id": category_id
                 })
 
         return redirect("/view_reference")
@@ -61,7 +64,9 @@ def choose_reference():
     """
     Route for choosing reference type.
     """
+    user_id = 1 # ADD WAY TO GET USER_ID
     choice = request.args.get('ref')
     log.info(f"Reftype \"{choice}\" chosen")
+    categories = category.get_all(user_id)
 
-    return render_template("add_reference.html", choice=choice)
+    return render_template("add_reference.html", choice=choice, categories=categories)

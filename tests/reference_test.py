@@ -3,7 +3,7 @@ from src.references.reference import Reference
 
 class TestReference(unittest.TestCase):
     def setUp(self):
-        self.reference = Reference(fields={"key": "Someuniquekey", "author":"mk", "title":"idk","year":"2001"})
+        self.reference = Reference(fields={"key": "Someuniquekey", "author":"mk", "title":"idk","year":"2001", "category_id":1})
 
     def test_key_takes_constructor_value(self):
         self.assertEqual(self.reference.key, "Someuniquekey")
@@ -32,6 +32,13 @@ class TestReference(unittest.TestCase):
     def test_set_year_changes_year(self):
         self.reference.year = "2005"
         self.assertEqual(self.reference.year, "2005")
+
+    def test_category_id_takes_constructor_value(self):
+        self.assertEqual(self.reference.category_id, 1)
+
+    def test_category_id_changes_constructor_value(self):
+        self.reference.category_id = 2
+        self.assertEqual(self.reference.category_id, 2)
 
     def test_bibtex_str(self):
         example_str = """@reference{Someuniquekey

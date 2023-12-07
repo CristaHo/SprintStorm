@@ -13,7 +13,7 @@ class BookDatabaseTest(TestCase):
         with app.app_context():
             from src.db import book
             result = book.get_all()
-        self.assertEqual(result, None)
+        self.assertEqual(result, [])
 
     def test_book_insert_one_with_correct_object_is_correctly_saved_to_db(self):
         test_book = {
@@ -21,17 +21,20 @@ class BookDatabaseTest(TestCase):
             "author": "Me",
             "title": "My best book", 
             "year": 2023,
-            "publisher": "Edelleen minä"
+            "publisher": "Edelleen minä",
+            "category_id":1
         }
 
         with app.app_context():
-            from src.db import book
+            from src.db import book, register, category
+            register.insert_new_user('test', 'test')
+            category.insert_one({"name":"test", "user_id":1})
             pre_result = book.get_all()
             book.insert_one(test_book)
             result = book.get_all()
 
         if result:
-            self.assertEqual(pre_result, None)
+            self.assertEqual(pre_result, [])
             self.assertIsInstance(result[0], Book)
 
             self.assertEqual(result[0].key, "key")
@@ -39,6 +42,7 @@ class BookDatabaseTest(TestCase):
             self.assertEqual(result[0].title, "My best book")
             self.assertEqual(result[0].year, 2023)
             self.assertEqual(result[0].publisher, "Edelleen minä")
+            self.assertEqual(result[0].category_id, 1)
         else:
             raise AssertionError("No result from database")
 
@@ -49,7 +53,8 @@ class BookDatabaseTest(TestCase):
             "title": "My best book", 
             "year": 2023,
             "publisher": "Edelleen minä", 
-            "address": "Manaattikuja 69"
+            "address": "Manaattikuja 69",
+            "category_id":1
         }
 
         other_test_book = {
@@ -58,11 +63,15 @@ class BookDatabaseTest(TestCase):
             "title": "Your best book", 
             "year": 2020,
             "publisher": "Edelleen sinä", 
-            "address": "Manaattikatu 96"
+            "address": "Manaattikatu 96",
+            "category_id":2
         }
 
         with app.app_context():
-            from src.db import book
+            from src.db import book, register, category
+            register.insert_new_user('test', 'test')
+            category.insert_one({"name":"test", "user_id":1})
+            category.insert_one({"name":"test2", "user_id":1})
             book.insert_one(test_book)
             book.insert_one(other_test_book)
             result = book.get_all()

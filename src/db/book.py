@@ -21,20 +21,21 @@ def get_all() -> list[Book] | None:
         return books
 
     log.info("No books found from database.")
-    return None
+    return []
 
 def insert_one(ref):
     """
     Inserts one book into database
     """
-    sql = text("INSERT INTO book (cite_key, author, title, year, publisher)"
-               " VALUES (:key, :author, :title, :year, :publisher)")
+    sql = text("INSERT INTO book (cite_key, author, title, year, publisher, category_id)"
+               " VALUES (:key, :author, :title, :year, :publisher, :category_id)")
     parsed_reference = {
         "key": ref["key"],
         "author": ref["author"],
         "title": ref["title"],
         "year": ref["year"],
-        "publisher": ref["publisher"]
+        "publisher": ref["publisher"],
+        "category_id": ref["category_id"]
     }
     db.session.execute(sql, parsed_reference)
     db.session.commit()
@@ -49,7 +50,8 @@ def parse_fetchall(rows):
             "author": rows[2],
             "title": rows[3],
             "year": rows[4],
-            "publisher": rows[5]
+            "publisher": rows[5],
+            "category_id": rows[6]
             }
 
     return fields

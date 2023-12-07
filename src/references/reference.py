@@ -18,6 +18,7 @@ class Reference:
         self._author = fields['author']
         self._title = fields['title']
         self._year = fields['year']
+        self._category_id = fields['category_id']
 
     @property
     def key(self):
@@ -74,6 +75,20 @@ class Reference:
         Sets year
         """
         self._year = year
+
+    @property
+    def category_id(self):
+        """
+        Returns category_id
+        """
+        return self._category_id
+
+    @category_id.setter
+    def category_id(self, category_id):
+        """
+        Sets the categroy_id
+        """
+        self._category_id = category_id
 
     def bibtex_str(self) -> str:
         """Creates a BibTeX formatted string of the reference

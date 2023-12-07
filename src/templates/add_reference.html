@@ -26,6 +26,12 @@
         <input type="text" name="publisher" id="publisher" required><br>
         <label for="address">Address:</label>
         <input type="text" name="address" id="address" required><br>
+        <label for="category">Category:</label>
+        <select id="category" name="category">
+          {% for cat in categories %}
+          <option value="{{ cat.id }}">{{ cat.name }}</option>
+          {% endfor %}
+        </select><br>
         <input type="hidden" id="reftype" name="reftype" value="book">
         <input type="submit" value="Add reference">
     </form>
@@ -46,6 +52,12 @@
       <input type="text" name="volume" id="volume" pattern="[0-9]+" title="Please enter a positive number." ><br>
       <label for="pages">Pages:</label>
       <input type="text" name="pages" id="pages" pattern="\d+(-\d+)?" title="Please enter a single page or a page range (eg. 32 or 101-167)." ><br>
+      <label for="category">Category:</label>
+        <select id="category" name="category">
+          {% for cat in categories %}
+          <option value="{{ cat.id }}">{{ cat.name }}</option>
+          {% endfor %}
+        </select><br>
       <input type="hidden" id="reftype" name="reftype" value="article">
       <input type="submit" value="Add reference">
     </form>
