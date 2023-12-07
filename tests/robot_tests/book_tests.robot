@@ -17,16 +17,25 @@ Suite Teardown  Close Browser
 #    Submit Reference
 #    Add Reference Should Succeed  Book Test
 
-#Add Book With Missing Field
-#    Go To Add Reference Page
-#    Choose Reference Type  book
-#    Set Key  book key2
-#    Set Title  Book Test2
-#    Set Year  2001
-#    Set Publisher  testpublisher
-#    Set Address  Teststreet 10
-#    Submit Reference
-#    Add Reference Should Fail For Missing Field  Author
+Add Book With Missing Field
+    Go To Register Page
+    Set Username  test
+    Set Password1  1234
+    Set Password2  1234
+    Submit Register
+    Go To Login Page
+    Set Username  test
+    Set Password  1234
+    Submit Login
+    Go To Add Reference Page
+    Choose Reference Type  book
+    Set Key  book key2
+    Set Title  Book Test2
+    Set Year  2001
+    Set Publisher  testpublisher
+    Set Address  Teststreet 10
+    Submit Reference
+    Add Reference Should Fail For Missing Field  Author
 
 #Add Book With Incorrect Year
 #    Go To Add Reference Page

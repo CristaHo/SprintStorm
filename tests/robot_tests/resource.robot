@@ -7,6 +7,8 @@ ${DELAY}  0 seconds
 ${FRONTPAGE_URL}  http://${SERVER}
 ${ADD_REFERENCE_URL}  http://${SERVER}/add_reference
 ${VIEW_REFERENCE_URL}  http://${SERVER}/view_reference
+${REGISTER_URL}  http://${SERVER}/register
+${LOGIN_URL}  http://${SERVER}/login
 
 *** Keywords ***
 Open And Configure Browser
@@ -32,3 +34,9 @@ Go To Add Reference Page
 
 Go To View Reference Page
     Go To  ${VIEW_REFERENCE_URL}
+
+Go To Register Page
+    Go To  ${REGISTER_URL}
+
+Go To Login Page
+    Go To  ${LOGIN_URL}

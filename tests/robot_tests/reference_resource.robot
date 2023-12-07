@@ -65,3 +65,25 @@ Set Volume
 Set Pages
     [Arguments]  ${pages}
     Input Text  pages  ${pages}
+
+Set Username
+    [Arguments]  ${username}
+    Input Text  username  ${username}
+
+Set Password1
+    [Arguments]  ${password1}
+    Input Text  password1  ${password1}
+
+Set Password2
+    [Arguments]  ${password2}
+    Input Text  password2  ${password2}
+
+Submit Register
+    Click Button  Register
+
+Set Password
+    [Arguments]  ${password}
+    Input Text  password  ${password}
+
+Submit Login
+    Click Button  Login
