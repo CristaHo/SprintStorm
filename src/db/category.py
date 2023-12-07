@@ -17,7 +17,7 @@ def get_all(user_id):
         return results
 
     log.info("No categories found")
-    return None
+    return []
 
 def insert_one(fields):
     """

@@ -21,7 +21,7 @@ def get_all() -> list[Book] | None:
         return books
 
     log.info("No books found from database.")
-    return None
+    return []
 
 def insert_one(ref):
     """

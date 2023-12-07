@@ -13,7 +13,7 @@ class ArticleDatabaseTest(TestCase):
         with app.app_context():
             from src.db import article
             result = article.get_all()
-        self.assertEqual(result, None)
+        self.assertEqual(result, [])
 
     def test_article_insert_one_with_correct_object_is_correctly_saved_to_db(self):
         test_article = {
@@ -36,7 +36,7 @@ class ArticleDatabaseTest(TestCase):
             result = article.get_all()
 
         if result:
-            self.assertEqual(pre_result, None)
+            self.assertEqual(pre_result, [])
             self.assertIsInstance(result[0], Article)
 
             self.assertEqual(result[0].key, "key")

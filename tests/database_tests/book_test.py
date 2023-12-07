@@ -13,7 +13,7 @@ class BookDatabaseTest(TestCase):
         with app.app_context():
             from src.db import book
             result = book.get_all()
-        self.assertEqual(result, None)
+        self.assertEqual(result, [])
 
     def test_book_insert_one_with_correct_object_is_correctly_saved_to_db(self):
         test_book = {
@@ -34,7 +34,7 @@ class BookDatabaseTest(TestCase):
             result = book.get_all()
 
         if result:
-            self.assertEqual(pre_result, None)
+            self.assertEqual(pre_result, [])
             self.assertIsInstance(result[0], Book)
 
             self.assertEqual(result[0].key, "key")

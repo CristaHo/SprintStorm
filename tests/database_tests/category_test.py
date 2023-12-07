@@ -13,7 +13,7 @@ class CategoryDatabaseTest(TestCase):
             from src.db import category, register
             register.insert_new_user('test', 'test')
             result = category.get_all(1)
-        self.assertEqual(result, None)
+        self.assertEqual(result, [])
 
     def test_category_inser_one(self):
         test_category = {"name":"123",
@@ -26,7 +26,7 @@ class CategoryDatabaseTest(TestCase):
             result = category.get_all(1)
 
         if result:
-            self.assertEqual(pre_result, None)
+            self.assertEqual(pre_result, [])
             self.assertEqual(result[0].name, "123")
             self.assertEqual(result[0].user_id, 1)
         else:
