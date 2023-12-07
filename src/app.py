@@ -20,7 +20,7 @@ def ping():
 import src.views.index
 import src.views.view_reference
 import src.views.add_reference
-import src.views.register_user
+import src.views.register
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=config.port())
