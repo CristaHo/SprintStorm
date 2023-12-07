@@ -4,12 +4,12 @@ Handles reference things
 import os
 from src.db import book, article
 
-def get_all():
+def get_all(uid):
     """
     Gets all references from database
     """
-    books = book.get_all()
-    articles = article.get_all()
+    books = book.get_all(uid)
+    articles = article.get_all(uid)
 
     if books and articles:
         return books + articles

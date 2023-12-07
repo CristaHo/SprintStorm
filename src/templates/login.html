@@ -3,9 +3,10 @@
     {% extends "layout.html" %}
     {% block title %}Register{% endblock %}
     {% block content %}
-    {% if error %}
-    <p class=error><strong>Error:</strong> {{ error }}</p>
-  {% endif %}
+    {% for message in get_flashed_messages() %}
+      <p>{{message}}</p>
+    {% endfor %}
+
   <form action="/login" method="POST">
     <p>Username:<br>
     <input type="text" name="username"></p>
