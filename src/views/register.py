@@ -2,7 +2,7 @@
 Blueprint for handling registering a new user.
 """
 
-from flask import render_template, request, flash
+from flask import render_template, request
 from src.app import app
 from src.db.register import insert_new_user
 
@@ -22,7 +22,7 @@ def register():
 
         if password != password_confirmation:
             error = "Passwords don't match"
-        
+
         elif insert_new_user(username, password):
             return render_template("index.html")
 
