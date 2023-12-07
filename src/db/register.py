@@ -1,9 +1,9 @@
 """Handles adding a new user to database
 """
 
+from werkzeug.security import generate_password_hash
 from sqlalchemy import text
 from src.utils.database import db
-from werkzeug.security import check_password_hash, generate_password_hash
 
 def insert_new_user(username, password):
     """Inserts a new user into database"""
@@ -15,5 +15,5 @@ def insert_new_user(username, password):
         db.session.commit()
         return True
     except:
+        error = "Error"
         return False
-
