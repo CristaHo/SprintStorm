@@ -1,0 +1,18 @@
+
+<body>
+    {% extends "layout.html" %}
+    {% block title %}Register{% endblock %}
+    {% block content %}
+    {% if error %}
+    <p class=error><strong>Error:</strong> {{ error }}</p>
+  {% endif %}
+  <form action="/login" method="POST">
+    <p>Username:<br>
+    <input type="text" name="username"></p>
+    <p>Password:<br>
+    <input type="password" name="password"></p>
+    <input type="submit" class="button" value="Login">
+    </form>
+    <p>No account yet? <a class="nav" href="/register">Register new account</a></p>
+    {% endblock %}
+</body>

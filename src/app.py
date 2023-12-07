@@ -26,6 +26,7 @@ import src.views.view_reference
 import src.views.add_reference
 import src.views.add_category
 import src.views.register
+import src.views.login
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=config.port())
