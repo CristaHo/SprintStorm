@@ -6,7 +6,7 @@ class TestArticle(unittest.TestCase):
         self.reference = Article(fields={
             "key": "Someuniquekey", "author" : "mk", "title":"idk","year" : "2001",
             "journal" : "journal", "volume" : "volume",
-            "pages" : "pages"})
+            "pages" : "pages", "category_id":1})
 
     def test_author_takes_constructor_value(self):
         self.assertEqual(self.reference.author, "mk")
@@ -55,6 +55,13 @@ class TestArticle(unittest.TestCase):
     def test_set_pages_changes_pages(self):
         self.reference.pages = "pages2"
         self.assertEqual(self.reference.pages, "pages2")
+
+    def test_category_id_takes_constructor_value(self):
+        self.assertEqual(self.reference.category_id, 1)
+
+    def test_category_id_changes_constructor_value(self):
+        self.reference.category_id = 2
+        self.assertEqual(self.reference.category_id, 2)
 
     def test_bibtex_str(self):
         example_str = """@article{Someuniquekey

@@ -23,11 +23,14 @@ class ArticleDatabaseTest(TestCase):
             "year": 2023,
             "journal": "Mitä tä tarkottaa :D", 
             "volume": 3,
-            "pages": "200-300"
+            "pages": "200-300",
+            "category_id":1
         }
 
         with app.app_context():
-            from src.db import article
+            from src.db import article, register, category
+            register.insert_new_user('test', 'test')
+            category.insert_one({"name":"test", "user_id":1})
             pre_result = article.get_all()
             article.insert_one(test_article)
             result = article.get_all()
@@ -54,7 +57,8 @@ class ArticleDatabaseTest(TestCase):
             "year": 2023,
             "journal": "Mitä tä tarkottaa :D", 
             "volume": 3,
-            "pages": "200-300"
+            "pages": "200-300",
+            "category_id":1
         }
 
         other_test_article = {
@@ -64,11 +68,15 @@ class ArticleDatabaseTest(TestCase):
             "year": 2020,
             "journal": "Edelleenkään en tiedä", 
             "volume": 1,
-            "pages": "100-200"
+            "pages": "100-200",
+            "category_id":2
         }
 
         with app.app_context():
-            from src.db import article
+            from src.db import article, register, category
+            register.insert_new_user('test', 'test')
+            category.insert_one({"name":"test", "user_id":1})
+            category.insert_one({"name":"test2", "user_id":1})
             article.insert_one(test_article)
             article.insert_one(other_test_article)
             result = article.get_all()

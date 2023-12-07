@@ -25,12 +25,13 @@ def get_all() -> list[Article] | None:
 
 def insert_one(ref):
     """Inserts one article into database"""
-    sql = text("INSERT INTO article (cite_key, author, title, year, journal, volume, pages)"
-               " VALUES (:key, :author, :title, :year, :journal, :volume, :pages)")
+    sql = text("INSERT INTO article"
+               " (cite_key, author, title, year, journal, volume, pages, category_id)"
+               " VALUES (:key, :author, :title, :year, :journal, :volume, :pages, :category_id)")
     db.session.execute(sql, {"key": ref["key"], "author":ref["author"],
                              "title":ref["title"], "year":ref["year"],
                              "journal":ref["journal"], "volume":ref["volume"],
-                             "pages":ref["pages"]})
+                             "pages":ref["pages"], "category_id":ref["category_id"]})
     db.session.commit()
 
 def parse_fetchall(rows):
@@ -45,7 +46,8 @@ def parse_fetchall(rows):
             "year": rows[4],
             "journal": rows[5],
             "volume": rows[6],
-            "pages": rows[7]
+            "pages": rows[7],
+            "category_id": rows[8]
             }
 
     return fields

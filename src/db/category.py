@@ -12,7 +12,7 @@ def get_all(user_id):
     """
     sql = text("SELECT * FROM category WHERE user_id=:user_id")
 
-    results = db.session.execute(sql, {"user_id":user_id})
+    results = db.session.execute(sql, {"user_id":user_id}).fetchall()
     if results:
         return results
 

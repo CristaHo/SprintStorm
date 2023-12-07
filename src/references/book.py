@@ -18,9 +18,11 @@ class Book(Reference):
                 "key": fields['key'],
                 "author":fields['author'],
                 "title":fields['title'],
-                "year":fields['year']
+                "year":fields['year'],
+                "category_id": fields['category_id']
                 })
         self._publisher = fields['publisher']
+
 
     @property
     def publisher(self):

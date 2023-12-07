@@ -5,7 +5,7 @@ class TestBook(unittest.TestCase):
     def setUp(self):
         self.reference = Book(fields={
             "key": "Someuniquekey", "author":"mk", "title":"idk","year":"2001",
-            "publisher":"publisher","address":"address"})
+            "publisher":"publisher","address":"address", "category_id":1})
 
     def test_author_takes_constructor_value(self):
         self.assertEqual(self.reference.author, "mk")
@@ -38,6 +38,13 @@ class TestBook(unittest.TestCase):
     def test_set_publisher_changes_publisher(self):
         self.reference.publisher = "publisher2"
         self.assertEqual(self.reference.publisher, "publisher2")
+
+    def test_category_id_takes_constructor_value(self):
+        self.assertEqual(self.reference.category_id, 1)
+
+    def test_category_id_changes_constructor_value(self):
+        self.reference.category_id = 2
+        self.assertEqual(self.reference.category_id, 2)
 
     def test_bibtex_str(self):
         example_str = """@book{Someuniquekey
