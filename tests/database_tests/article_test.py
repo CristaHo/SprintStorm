@@ -14,7 +14,7 @@ class ArticleDatabaseTest(TestCase):
             from src.db import article,register
             register.insert_new_user("mie","123")
             result = article.get_all(1)
-        self.assertEqual(result, [])
+        self.assertEqual(result, None)
 
     def test_article_insert_one_with_correct_object_is_correctly_saved_to_db(self):
         test_article = {
@@ -38,7 +38,7 @@ class ArticleDatabaseTest(TestCase):
             result = article.get_all(1)
 
         if result:
-            self.assertEqual(pre_result, [])
+            self.assertEqual(pre_result, None)
             self.assertIsInstance(result[0], Article)
 
             self.assertEqual(result[0].key, "key")
@@ -133,5 +133,32 @@ class ArticleDatabaseTest(TestCase):
             self.assertEqual(len(result2), 1)
             self.assertEqual(result[0].author, "Me")
             self.assertEqual(result2[0].author, "You")
+        else:
+            raise AssertionError("No result from database")
+
+    def test_delete_one_article(self):
+        test_article = {
+            "key": "key",
+            "author": "Me",
+            "title": "My best book", 
+            "year": 2023,
+            "journal": "Mitä tä tarkottaa :D", 
+            "volume": 3,
+            "pages": "200-300",
+            "category_id":1,
+            "user_id":1
+        }
+
+        with app.app_context():
+            from src.db import article, register, category
+            register.insert_new_user('test', 'test')
+            category.insert_one({"name":"test", "user_id":1})
+            article.insert_one(test_article)
+            result = article.get_all(1)
+            article.delete_one(1,"key")
+            result2 = article.get_all(1)
+
+        if result:
+            self.assertEqual(result2, None)
         else:
             raise AssertionError("No result from database")

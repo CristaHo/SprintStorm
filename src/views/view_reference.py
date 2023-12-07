@@ -4,7 +4,7 @@ Blueprint for handling viewing references.
 
 from flask import render_template, send_file,request,url_for,session,flash,redirect
 from src.app import app
-from src.db.reference import get_all, get_references_in_bibtex, create_bib_file
+from src.db.reference import get_all, get_references_in_bibtex, create_bib_file, delete_one
 from src.db import category
 from src.utils.logging import log
 
@@ -51,3 +51,15 @@ def downloader_bib():
     path = create_bib_file(bib_list)
     log.info(f"Created {bib_list} to path {path}")
     return send_file(path, as_attachment = True)
+
+@app.route("/view_reference/delete", methods=["POST"])
+def delete_reference():
+    """
+    Route for deleting references
+    """
+    if session.get("uid") is None:
+        flash("Login needed")
+        return redirect(url_for('login'))
+    log.info("Deleting reference...")
+    delete_one(session.get("uid"), request.form["reference_key"], request.form["reference_type"])
+    return redirect(url_for('view_reference'))

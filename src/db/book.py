@@ -56,3 +56,11 @@ def parse_fetchall(rows):
             }
 
     return fields
+
+def delete_one(uid, cite_key):
+    """
+    Deletes one book from database
+    """
+    sql = text("DELETE FROM book WHERE user_id =:uid AND cite_key =:cite_key")
+    db.session.execute(sql,{"uid":uid, "cite_key":cite_key})
+    db.session.commit()

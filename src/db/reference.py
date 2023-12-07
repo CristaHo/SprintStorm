@@ -32,3 +32,14 @@ def create_bib_file(bib_string):
         for line in bib_string:
             file.write(line)
     return path
+
+def delete_one(uid:int, ref_id:int, ref_type:str):
+    """
+    Deletes one reference from database
+    """
+    if ref_type == "book":
+        book.delete_one(uid, ref_id)
+    elif ref_type == "article":
+        article.delete_one(uid, ref_id)
+    else:
+        raise ValueError("Invalid reference type")

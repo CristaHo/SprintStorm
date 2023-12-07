@@ -18,7 +18,17 @@
     <ol>
 
             {% for reference in references %}
-                <li>{{ reference.author }} <i> {{ reference.title }}</i> {{ reference.year }}</li>
+                <li>{{ reference.author }} <i> {{ reference.title }}</i> {{ reference.year }}</br>
+                    <form action="/view_reference/delete" method="POST">
+                        <input type="hidden" name="reference_key" value="{{ reference.key }}">
+                        {% if reference.publisher %}
+                            <input type="hidden" name="reference_type" value="book">
+                        {% else %}
+                            <input type="hidden" name="reference_type" value="article">
+                        {% endif %}
+                        <input type="submit" value="Delete this reference">
+                    </form>
+                </li>
             {% endfor %}
 
     </ol>
