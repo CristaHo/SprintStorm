@@ -4,6 +4,12 @@ CREATE TABLE IF NOT EXISTS users (
     password TEXT
 );
 
+CREATE TABLE IF NOT EXISTS category (
+    id SERIAL PRIMARY KEY,
+    name TEXT,
+    user_id INTEGER REFERENCES users
+);
+
 CREATE TABLE IF NOT EXISTS reference (
     id SERIAL PRIMARY KEY, 
     author TEXT, 
@@ -17,7 +23,8 @@ CREATE TABLE IF NOT EXISTS book (
     author TEXT, 
     title TEXT, 
     year INTEGER, 
-    publisher TEXT
+    publisher TEXT,
+    category_id INTEGER REFERENCES category
 );
 
 CREATE TABLE IF NOT EXISTS article (
@@ -28,5 +35,6 @@ CREATE TABLE IF NOT EXISTS article (
     year INTEGER,
     journal TEXT,
     volume INTEGER,
-    pages TEXT
+    pages TEXT,
+    category_id INTEGER REFERENCES category
 );
