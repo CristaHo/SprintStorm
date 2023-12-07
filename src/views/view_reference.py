@@ -2,7 +2,7 @@
 Blueprint for handling viewing references.
 """
 
-from flask import render_template, send_file,request,url_for,session,flash,redirect
+from flask import render_template, send_file,url_for,session,flash,redirect
 from src.app import app
 from src.db.reference import get_all, get_references_in_bibtex, create_bib_file
 from src.utils.logging import log

@@ -56,8 +56,8 @@ def port() -> int:
 def secret_key() -> str:
     """ Returns secret key from env
     """
-    secret_key = getenv("SECRET_KEY")
-    
-    if not secret_key:
+    s_key = getenv("SECRET_KEY")
+
+    if not s_key:
         return "testkey"
-    return secret_key
+    return s_key
