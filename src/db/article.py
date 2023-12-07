@@ -27,11 +27,13 @@ def insert_one(ref):
     """Inserts one article into database"""
     sql = text("INSERT INTO article"
                " (cite_key, author, title, year, journal, volume, pages, category_id,user_id)"
-               " VALUES (:key, :author, :title, :year, :journal, :volume, :pages, :category_id,:user_id)")
+               " VALUES (:key, :author, :title, :year, :journal, :volume, :pages,"
+                " :category_id,:user_id)")
     db.session.execute(sql, {"key": ref["key"], "author":ref["author"],
                              "title":ref["title"], "year":ref["year"],
                              "journal":ref["journal"], "volume":ref["volume"],
-                             "pages":ref["pages"], "category_id":ref["category_id"],"user_id":ref["user_id"]})
+                             "pages":ref["pages"], "category_id":ref["category_id"],
+                             "user_id":ref["user_id"]})
     db.session.commit()
 
 def parse_fetchall(rows):
