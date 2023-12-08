@@ -2,9 +2,14 @@
     {% extends "layout.html" %}
     {% block title %}Frontpage{% endblock %}
     {% block content %}
+    
+    {% for message in get_flashed_messages() %}
+      <p>{{message}}</p>
+    {% endfor %}
 
     <a href="/register">Register new user</a>
     <a href ="/login">Login</a>
+    <a href ="/logout">Logout</a>
     <hr>
     <a href="/add_reference">Add/choose reference</a>
     <a href="/view_reference">View references</a>
