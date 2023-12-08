@@ -14,7 +14,7 @@ def add_category():
     """
     user_id = session.get("uid")
     if request.method == "GET":
-        categories = category.get_all(user_id)
+        categories = category.get_all(user_id) or []
         log.info(f"All users categories: {categories}")
 
         return render_template("add_category.html", categories=categories)

@@ -15,8 +15,8 @@ def view_reference():
     Route for viewing added references.
     """
     user_id = session.get("uid")
-    categories = category.get_all(user_id)
-    reference_list = get_all(user_id)
+    categories = category.get_all(user_id) or []
+    reference_list = get_all(user_id) or []
     if request.method == "GET":
         if user_id is None:
             flash("Login needed to view this page")
