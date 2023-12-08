@@ -1,5 +1,6 @@
 *** Settings ***
 Library  SeleniumLibrary
+Library  OperatingSystem
 
 *** Variables ***
 ${SERVER}  localhost:8000
@@ -72,6 +73,11 @@ Submit Login
 Set Category
     [Arguments]  ${category}
     Input Text  name  ${category}
+
+Choose Reference Type
+    [Arguments]  ${type}
+    Select From List by Value  id=ref  ${type}
+    Click Button  Select
 
 Register And Login
     Go To Register Page
