@@ -2,7 +2,7 @@
 Blueprint for handling user login.
 """
 
-from flask import render_template, request,flash,redirect,url_for
+from flask import render_template, request,flash,redirect,url_for,session
 from src.app import app
 from src.db.login import check_user
 
@@ -26,3 +26,13 @@ def login():
             flash("Invalid username or password")
 
     return render_template("login.html")
+
+@app.route("/logout")
+def logout():
+    """
+    Route for logging out.
+    """
+    if session.get("uid") is not None:
+        del session["uid"]
+        flash("You have logged out")
+    return redirect(url_for('index'))
