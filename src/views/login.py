@@ -4,7 +4,7 @@ Blueprint for handling user login.
 
 from flask import render_template, request,flash,redirect,url_for
 from src.app import app
-from src.db.login import get_user
+from src.db.login import check_user
 
 
 @app.route("/login",methods=["GET", "POST"])
@@ -18,7 +18,11 @@ def login():
         username = request.form["username"]
         password = request.form["password"]
 
-        if get_user(username, password):
+        if not username or not password:
+            flash("Username or password not provided")
+        elif check_user(username, password):
             return redirect(url_for('index'))
-        flash("Invalid username or password")
+        else:
+            flash("Invalid username or password")
+
     return render_template("login.html")
