@@ -22,6 +22,7 @@ flask-testing = "^0.8.1"
 python-dotenv = "^1.0.0"
 robotframework = "^6.1.1"
 robotframework-seleniumlibrary = "^6.2.0"
+rpaframework = "^27.7.0"
 
 [build-system]
 requires = ["poetry-core"]
