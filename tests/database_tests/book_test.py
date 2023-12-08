@@ -128,3 +128,29 @@ class BookDatabaseTest(TestCase):
             self.assertEqual(result2[0].author, "You")
         else:
             raise AssertionError("No result from database")
+
+    def test_delete_one_book(self):
+        test_book = {
+            "key": "key",
+            "author": "Me",
+            "title": "My best book", 
+            "year": 2023,
+            "publisher": "Edelleen minä", 
+            "address": "Manaattikuja 69",
+            "category_id":1,
+            "user_id":1
+        }
+
+        with app.app_context():
+            from src.db import book, register, category
+            register.insert_new_user('test', 'test')
+            category.insert_one({"name":"test", "user_id":1})
+            book.insert_one(test_book)
+            result = book.get_all(1)
+            book.delete_one(1,"key")
+            result2 = book.get_all(1)
+
+        if result:
+            self.assertEqual(result2, None)
+        else:
+            raise AssertionError("No result from database")
