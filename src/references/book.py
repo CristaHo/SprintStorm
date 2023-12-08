@@ -41,10 +41,10 @@ class Book(Reference):
     def bibtex_str(self) -> str:
         # \u007b = {
         # \u007d = }
-        string = f"""@book\u007b{self.key}
-    title = {self.title}
-    author = {self.author}
-    year = {self.year}
-    publisher = {self.publisher}
+        string = f"""@book\u007b{self.key},
+    title = \u007b{self.title}\u007d,
+    author = \u007b{self.author}\u007d,
+    year = \u007b{self.year}\u007d,
+    publisher = \u007b{self.publisher}\u007d
 \u007d"""
         return string

@@ -64,13 +64,13 @@ class TestArticle(unittest.TestCase):
         self.assertEqual(self.reference.category_id, 2)
 
     def test_bibtex_str(self):
-        example_str = """@article{Someuniquekey
-    title = idk
-    author = mk
-    year = 2001
-    journal = journal
-    volume = volume
-    pages = pages
+        example_str = """@article{Someuniquekey,
+    title = "\u007bidk\u007d",
+    author = "mk",
+    year = "2001",
+    journal = "journal",
+    volume = "volume",
+    pages = "pages"
 }"""
         bibtex_str = self.reference.bibtex_str()
         self.assertEqual(bibtex_str, example_str)
