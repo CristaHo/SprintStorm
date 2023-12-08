@@ -31,3 +31,18 @@ class CategoryDatabaseTest(TestCase):
             self.assertEqual(result[0].user_id, 1)
         else:
             raise AssertionError("No result from database")
+
+    def test_category_delete_one(self):
+        test_category = {"name":"123",
+                         "user_id":1}
+        with app.app_context():
+            from src.db import category, register
+            register.insert_new_user('test', 'test')
+            category.insert_one(test_category)
+            pre_result = category.get_all(1)
+            category.delete_one({"id": 1})
+            result = category.get_all(1)
+
+        self.assertEqual(len(pre_result), 1)
+        self.assertEqual(len(result), 0)
+        self.assertEqual(result, [])
