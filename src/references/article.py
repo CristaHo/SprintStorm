@@ -74,11 +74,11 @@ class Article(Reference):
     def bibtex_str(self) -> str:
         # \u007b = {
         # \u007d = }
-        return f"""@article\u007b{self.key}
-    title = {self.title}
-    author = {self.author}
-    year = {self.year}
-    journal = {self.journal}
-    volume = {self.volume}
-    pages = {self.pages}
+        return f"""@article\u007b{self.key},
+    title = "\u007b{self.title}\u007d",
+    author = "{self.author}",
+    year = "{self.year}",
+    journal = "{self.journal}",
+    volume = "{self.volume}",
+    pages = "{self.pages}"
 \u007d"""

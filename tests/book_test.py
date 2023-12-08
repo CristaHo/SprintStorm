@@ -47,11 +47,11 @@ class TestBook(unittest.TestCase):
         self.assertEqual(self.reference.category_id, 2)
 
     def test_bibtex_str(self):
-        example_str = """@book{Someuniquekey
-    title = idk
-    author = mk
-    year = 2001
-    publisher = publisher
+        example_str = """@book{Someuniquekey,
+    title = \u007bidk\u007d,
+    author = \u007bmk\u007d,
+    year = \u007b2001\u007d,
+    publisher = \u007bpublisher\u007d
 }"""
         bibtex_str = self.reference.bibtex_str()
         self.assertEqual(bibtex_str, example_str)
