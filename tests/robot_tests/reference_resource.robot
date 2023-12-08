@@ -18,11 +18,6 @@ Add Reference Should Fail For Missing Field
     [Arguments]  ${field}
     Element Should Be Visible  css=input#${field}:required:invalid
 
-Choose Reference Type
-    [Arguments]  ${type}
-    Select From List by Value  id=ref  ${type}
-    Click Button  Select
-
 Choose Category Type
     [Arguments]  ${type}
     Select From List By Value  id=category  ${type}
