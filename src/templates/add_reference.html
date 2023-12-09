@@ -2,6 +2,9 @@
   {% extends "layout.html" %}
   {% block title %}Add reference{% endblock %}
   {% block content %}
+  {% for message in get_flashed_messages() %}
+    <p>{{message}}</p>
+  {% endfor %}
     <form action="/choose_reference">
         <label for="ref">Choose reference type:</label>
         <select id="ref" name="ref" required>

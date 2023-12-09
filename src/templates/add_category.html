@@ -2,6 +2,9 @@
     {% extends "layout.html" %}
     {% block title %}Add category{% endblock %}
     {% block content %}
+    {% for message in get_flashed_messages() %}
+      <p>{{message}}</p>
+    {% endfor %}
       <form action="/add_category" method="POST">
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" required><br>
