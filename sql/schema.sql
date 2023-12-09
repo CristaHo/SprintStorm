@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS category (
     id SERIAL PRIMARY KEY,
     name TEXT,
-    user_id INTEGER REFERENCES users
+    user_id INTEGER REFERENCES users NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS reference (
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS book (
     year INTEGER, 
     publisher TEXT,
     category_id INTEGER REFERENCES category,
-    user_id INTEGER REFERENCES users
+    user_id INTEGER REFERENCES users NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS article (
@@ -38,5 +38,5 @@ CREATE TABLE IF NOT EXISTS article (
     volume INTEGER,
     pages TEXT,
     category_id INTEGER REFERENCES category,
-    user_id INTEGER REFERENCES users
+    user_id INTEGER REFERENCES users NOT NULL
 );
