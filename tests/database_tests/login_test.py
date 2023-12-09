@@ -2,7 +2,7 @@ from unittest import TestCase
 
 from src.app import app
 
-class RegisterDatabaseTest(TestCase):
+class LoginDatabaseTest(TestCase):
     def setUp(self):
         with app.app_context():
             from src.utils.database import reset_database

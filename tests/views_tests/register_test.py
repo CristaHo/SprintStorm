@@ -2,7 +2,7 @@ from unittest import TestCase
 from sqlalchemy import text
 from src.app import app
 
-class TestRegister(TestCase):
+class TestRegisterView(TestCase):
     def setUp(self):
         self.app = app.test_client()
         with app.app_context():

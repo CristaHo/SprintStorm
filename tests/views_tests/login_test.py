@@ -3,7 +3,7 @@ from sqlalchemy import text
 from flask import session
 from src.app import app
 
-class TestLogin(TestCase):
+class TestLoginView(TestCase):
     def setUp(self):
         test_user = {
                 "username": "test",
