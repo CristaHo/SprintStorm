@@ -68,6 +68,7 @@ def add_reference():
                 })
 
         return redirect("/view_reference")
+    return redirect("/view_reference")
 
 @app.route("/choose_reference", methods=["GET"])
 def choose_reference():

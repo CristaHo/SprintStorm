@@ -32,6 +32,8 @@ def view_reference():
         return render_template("view_reference.html",
                                references=reference_list, categories=categories)
 
+    return render_template("view_reference.html",
+                           references=reference_list, categories = categories)
 
 @app.route("/view_reference/download")
 def downloader_bib():
