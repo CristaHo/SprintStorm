@@ -19,13 +19,20 @@ def add_reference():
         return render_template("add_reference.html")
 
     if request.method == "POST":
-        log.info(f"Creating user with data: {request.form}")
+        log.info(f"Creating reference with data: {request.form}")
         key = request.form['key']
         author = request.form['author']
         title = request.form['title']
         year = request.form['year']
         category_id = request.form['category']
         user_id = session.get("uid")
+
+        if not user_id:
+            log.error("User id was not set")
+            flash("User not logged in")
+            return render_template("add_reference.html")
+
+
         if request.form["reftype"] == "book":
             publisher = request.form['publisher']
             address = request.form['address']
@@ -61,9 +68,6 @@ def add_reference():
                 })
 
         return redirect("/view_reference")
-
-    log.warning("No correct method given for request")
-    return None
 
 @app.route("/choose_reference", methods=["GET"])
 def choose_reference():
