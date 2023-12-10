@@ -18,11 +18,6 @@ log.info("Starting application...")
 log.info(f"Current environment: {config.env()}")
 log.info(f"Current POSTGRES_URL: {config.db_url()}")
 
-@app.route("/ping")
-def ping():
-    """Returns test message"""
-    return {"message": "pong"}
-
 import src.views.index
 import src.views.view_reference
 import src.views.add_reference

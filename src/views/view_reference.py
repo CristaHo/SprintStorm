@@ -27,16 +27,13 @@ def view_reference():
                                references=reference_list, categories = categories)
     if request.method == "POST":
         cat = request.form["category"]
-
         reference_list = [ref for ref in reference_list if ref.category_id == int(cat)]
-
         log.info(f"References for category: {reference_list}")
-
         return render_template("view_reference.html",
                                references=reference_list, categories=categories)
 
-    return None
-
+    return render_template("view_reference.html",
+                           references=reference_list, categories = categories)
 
 @app.route("/view_reference/download")
 def downloader_bib():
