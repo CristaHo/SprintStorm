@@ -31,6 +31,7 @@
         <input type="text" name="address" id="address" required><br>
         <label for="category">Category:</label>
         <select id="category" name="category">
+          <option value="0" selected>Choose category...</option>
           {% for cat in categories %}
           <option value="{{ cat.id }}">{{ cat.name }}</option>
           {% endfor %}
@@ -57,6 +58,7 @@
       <input type="text" name="pages" id="pages" pattern="\d+(-\d+)?" title="Please enter a single page or a page range (eg. 32 or 101-167)." ><br>
       <label for="category">Category:</label>
         <select id="category" name="category">
+          <option value="0" selected>Choose category...</option>
           {% for cat in categories %}
           <option value="{{ cat.id }}">{{ cat.name }}</option>
           {% endfor %}

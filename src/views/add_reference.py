@@ -24,7 +24,7 @@ def add_reference():
         author = request.form['author']
         title = request.form['title']
         year = request.form['year']
-        category_id = request.form['category']
+        category_id = request.form['category'] if request.form['category'] != "0" else None
         user_id = session.get("uid")
 
         if not user_id:
