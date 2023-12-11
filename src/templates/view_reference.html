@@ -6,6 +6,8 @@
 <form action="/view_reference" method="POST">
 <label for="category">Filter by category:</label>
 <select id="category" name="category">
+    <!--Made the value 0 beacuse the category id can never be 0-->
+    <option value="0">Show all</option> 
     {% for cat in categories %}
     <option value="{{ cat.id }}">{{ cat.name }}</option>
     {% endfor %}
