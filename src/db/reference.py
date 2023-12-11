@@ -26,7 +26,7 @@ def create_bib_file(bib_string):
     """
     Creates .bib file from references to static folder
     """
-    # path = <project_root>/static/<filename
+    # path = <project_root>/static/<filename>
     path = os.getcwd() + "/static/bib-file.bib"
     with open(path,"w+", encoding="utf-8") as file:
         for line in bib_string:
