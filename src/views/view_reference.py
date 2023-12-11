@@ -27,7 +27,8 @@ def view_reference():
                                references=reference_list, categories = categories)
     if request.method == "POST":
         cat = request.form["category"]
-        reference_list = [ref for ref in reference_list if ref.category_id == int(cat)]
+        if int(cat) != 0:
+            reference_list = [ref for ref in reference_list if ref.category_id == int(cat)]
         log.info(f"References for category: {reference_list}")
         return render_template("view_reference.html",
                                references=reference_list, categories=categories)
