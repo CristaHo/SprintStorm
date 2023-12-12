@@ -15,25 +15,75 @@
 <input type="submit" value="Filter">
 </form>
 <h3>References:</h3>
-<br>
 <div>
-    <ol>
+    <h4>Books</h4>
+    <table class="references">
+        <tr>
+            <th>Author</th>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Publisher</th>
+            <th>Delete</th>
+        </tr>
 
             {% for reference in references %}
-                <li>{{ reference.author }} <i> {{ reference.title }}</i> {{ reference.year }}</br>
+
+                    {% if reference.publisher %}
+                    <tr>
+                    <td>{{ reference.author }} </td>
+                    <td> <i> {{ reference.title }}</i> </td>
+                    <td>{{ reference.year }}</td>
+                    <td>{{ reference.publisher  }}</td>
+                        <td>
+
                     <form action="/view_reference/delete" method="POST">
                         <input type="hidden" name="reference_key" value="{{ reference.key }}">
-                        {% if reference.publisher %}
                             <input type="hidden" name="reference_type" value="book">
-                        {% else %}
-                            <input type="hidden" name="reference_type" value="article">
-                        {% endif %}
                         <input type="submit" value="Delete this reference">
                     </form>
-                </li>
+                    </td>
+                    </tr>
+                    {% endif %}
             {% endfor %}
 
-    </ol>
+            </table>
+            <br>
+            <h4>Articles</h4>
+            <table class="references">
+                <tr>
+                    <th>Author</th>
+                    <th>Title</th>
+                    <th>Year</th>
+                    <th>Journal</th>
+                    <th>Volume</th>
+                    <th>Pages</th>
+                    <th>Delete</th>
+                </tr>
+                {% for reference in references %}
+
+                        {% if not reference.publisher %}
+
+                        <tr>
+                            <td>{{ reference.author }} </td>
+                            <td> <i> {{ reference.title }}</i> </td>
+                            <td>{{ reference.year }}</td>
+                            <td>{{ reference.journal }}</td>
+                            <td>{{ reference.volume  }}</td>
+                            <td>{{ reference.pages  }}</td>
+                                <td>
+
+                            <form action="/view_reference/delete" method="POST">
+                                <input type="hidden" name="reference_key" value="{{ reference.key }}">
+                                    <input type="hidden" name="reference_type" value="article">
+                                <input type="submit" value="Delete this reference">
+                            </form>
+                            </td>
+                            </tr>
+                        {% endif %}
+                {% endfor %}
+
+                </table>
+                <br>
 </div>
 <p><a href="/view_reference/download">Download reference file</a></p>
 <a href="/">Back to frontpage</a>
