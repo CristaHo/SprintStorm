@@ -91,3 +91,6 @@ Select Category
     [Arguments]  ${type}
     Select From List by Label  name=category  ${type}
 
+Submit Filter
+    Click Button  Filter
+

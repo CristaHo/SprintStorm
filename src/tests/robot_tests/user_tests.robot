@@ -24,4 +24,12 @@ Login And Create Reference With Category
     Go To View Reference Page
     Page Should Contain  Book Test
 
+Login And View Reference By Category
+    Login
+    Front Page Should Be Open
+    Page Should Contain Link  /logout
+    Go To View Reference Page
+    Select Category  testcategory
+    Submit Filter
+    Page Should Contain  Book Test
 
