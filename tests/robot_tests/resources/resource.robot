@@ -18,7 +18,8 @@ Open And Configure Browser
     Call Method  ${options}  add_argument  --headless
     Open Browser  browser=chrome  options=${options}
     Set Selenium Speed  ${DELAY}
-    Register And Login
+    Register
+    Login
     Add Test Category
 
 Front Page Should Be Open
@@ -79,12 +80,14 @@ Choose Reference Type
     Select From List by Value  id=ref  ${type}
     Click Button  Select
 
-Register And Login
+Register
     Go To Register Page
     Set Username  test
     Set Password1  1234
     Set Password2  1234
     Submit Register
+
+Login
     Go To Login Page
     Set Username  test
     Set Password  1234

@@ -9,7 +9,7 @@ ${DOWNLOAD_DIR}  ./tests/robot_tests/test_downloads
 ${FILE_NAME}  bib-file.bib
 
 *** Keywords ***
-Setup Suite
+Download Setup Suite
     ${absolute_path}=  Evaluate  os.path.abspath('${DOWNLOAD_DIR}')  os
     ${prefs}=  Create Dictionary  download.default_directory  ${absolute_path}
     ${options}=  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys
@@ -17,7 +17,8 @@ Setup Suite
     Call Method  ${options}  add_argument  --headless
     Open Browser  browser=chrome  options=${options}
     Set Selenium Speed  0 second
-    Register And Login
+    Register
+    Login
     Add Test Category
 Teardown Suite
     Close Browser

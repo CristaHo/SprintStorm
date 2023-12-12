@@ -1,6 +1,6 @@
 *** Settings ***
-Resource  resource.robot
-Resource  reference_resource.robot
+Resource  resources/resource.robot
+Resource  resources/reference_resource.robot
 Suite Setup  Open And Configure Browser
 Suite Teardown  Close Browser
 

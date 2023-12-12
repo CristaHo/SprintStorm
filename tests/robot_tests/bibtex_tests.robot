@@ -1,7 +1,7 @@
 *** Settings ***
 Library  OperatingSystem
-Resource  bibtex_resource.robot
-Suite Setup  Setup Suite
+Resource  resources/download_resource.robot
+Suite Setup  Download Setup Suite
 Suite Teardown  Teardown Suite
 
 
