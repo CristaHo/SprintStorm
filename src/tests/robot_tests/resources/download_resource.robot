@@ -16,7 +16,7 @@ Download Setup Suite
     Set Selenium Speed  0 second
     Register
     Login
-    Add Test Category
+
 Download Teardown Suite
     Close Browser
     Remove Files  ${DOWNLOAD_DIR}/*

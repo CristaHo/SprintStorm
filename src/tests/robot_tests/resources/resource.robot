@@ -24,7 +24,6 @@ Open And Configure Browser
     Set Selenium Speed  ${DELAY}
     Register
     Login
-    Add Test Category
 
 Front Page Should Be Open
     Title Should Be  Bibtex maker - Frontpage
