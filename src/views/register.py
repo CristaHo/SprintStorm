@@ -2,7 +2,7 @@
 Blueprint for handling registering a new user.
 """
 
-from flask import render_template, request
+from flask import render_template, request,redirect,url_for,flash,session
 from src.app import app
 from src.db.register import insert_new_user
 from src.utils.logging import log
@@ -15,6 +15,8 @@ def register():
     """
     error = None
     if request.method == "GET":
+        if session.get("uid") is not None:
+            return redirect(url_for('index'))
         return render_template("register.html")
     if request.method == "POST":
         username = request.form["username"]
@@ -31,7 +33,8 @@ def register():
 
         elif insert_new_user(username, password):
             log.info("User created")
-            return render_template("index.html")
+            flash("User created")
+            return redirect(url_for('index'))
 
         else:
             error = "Error in user creation"

@@ -14,6 +14,8 @@ def login():
     Route for logging in.
     """
     if request.method == "GET":
+        if session.get("uid") is not None:
+            return redirect(url_for('index'))
         return render_template("login.html")
     if request.method == "POST":
         username = request.form["username"]

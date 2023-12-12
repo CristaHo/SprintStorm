@@ -13,5 +13,4 @@ class TestIndexViews(TestCase):
         response = self.app.get("/")
         self.assertTrue(b'Bibtex maker' in response.data)
         self.assertTrue(b'Login' in response.data)
-        self.assertTrue(b'View references' in response.data)
-        self.assertTrue(b'Add category' in response.data)
+        self.assertTrue(b'Register' in response.data)

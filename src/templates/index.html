@@ -6,14 +6,17 @@
     {% for message in get_flashed_messages() %}
       <p>{{message}}</p>
     {% endfor %}
-
-    <a href="/register">Register new user</a>
-    <a href ="/login">Login</a>
+    {% if login_status == False %}
+    <p><a href="/register">Register new user</a></p>
+    <p><a href ="/login">Login</a></p>
+    {% endif %}
+    {% if login_status == True %}
     <a href ="/logout">Logout</a>
     <hr>
-    <a href="/add_reference">Add/choose reference</a>
-    <a href="/view_reference">View references</a>
-    <a href="/add_category">Add category</a>
+    <p><a href="/add_reference">Add/choose reference</a></p>
+    <p><a href="/view_reference">View references</a></p>
+    <p><a href="/add_category">Add category</a></p>
+    {% endif %}
     <hr>
     {% endblock %}
 </body>
