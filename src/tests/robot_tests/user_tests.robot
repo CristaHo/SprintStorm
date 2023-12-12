@@ -13,6 +13,7 @@ Create Account Login And View References
     Add Reference Should Succeed With Title  Book Test
     Go To View Reference Page
     Page Should Contain  Book Test
+    Logout
 
 Login And Create Reference With Category
     Register
@@ -24,6 +25,7 @@ Login And Create Reference With Category
     Add Reference Should Succeed With Title  Book Test
     Go To View Reference Page
     Page Should Contain  Book Test
+    Logout
 
 Login And View Reference By Category
     Register
@@ -34,4 +36,5 @@ Login And View Reference By Category
     Select Category  testcategory
     Submit Filter
     Page Should Contain  Book Test
+    Logout
 

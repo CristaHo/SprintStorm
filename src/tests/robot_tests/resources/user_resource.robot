@@ -42,3 +42,7 @@ Set Password
 
 Submit Login
     Click Button  Login
+
+logout
+    Go To Front Page
+    Click Link  /logout
