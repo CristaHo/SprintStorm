@@ -15,6 +15,7 @@ Create Account Login And View References
     Page Should Contain  Book Test
 
 Login And Create Reference With Category
+    Register
     Login
     Front Page Should Be Open
     Page Should Contain Link  /logout
@@ -25,6 +26,7 @@ Login And Create Reference With Category
     Page Should Contain  Book Test
 
 Login And View Reference By Category
+    Register
     Login
     Front Page Should Be Open
     Page Should Contain Link  /logout
