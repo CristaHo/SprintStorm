@@ -64,20 +64,30 @@ Set Pages
 Add Book Reference
     Go To Add Reference Page
     Set Reference Type  book
+    Set Book Test Data
+    Submit Reference
+
+Add Book With Category
+    Go To Add Reference Page
+    Set Reference Type  book
+    Set Book Test Data
+    Select Category  testcategory
+    Submit Reference
+
+Set Book Test Data
     Set Key  book key2
     Set Author  Tester
     Set Title  Book Test
     Set Year  2000
     Set Publisher  testpublisher
     Set Address  Teststreet 10
-    Submit Reference
 
 Set Reference Type
     [Arguments]  ${type}
     Select From List by Value  id=ref  ${type}
     Click Button  Select
 
-Set Category
+Select Category
     [Arguments]  ${type}
-    Select From List by Value  id=category  ${type}
+    Select From List by Label  name=category  ${type}
 

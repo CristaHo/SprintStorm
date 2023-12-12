@@ -1,21 +1,12 @@
 *** Settings ***
 Resource  resource.robot
-Library  userlibrary.py
 
 *** Keywords ***
-User Teardown Suite
-    Close Browser
-    Delete User from Database
-
 User Setup Suite
     ${options}  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys
-    Call Method  ${options}  add_argument  --headless
+    #Call Method  ${options}  add_argument  --headless
     Open Browser  browser=chrome  options=${options}
     Set Selenium Speed  ${DELAY}
-
-Delete User from Database
-    ${username_to_delete}  Set Variable  test
-    userlibrary.Delete User By Username  ${username_to_delete}
 
 Register
     Go To Register Page

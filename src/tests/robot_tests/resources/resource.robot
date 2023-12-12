@@ -8,7 +8,7 @@ Resource  user_resource.robot
 
 *** Variables ***
 ${SERVER}  localhost:8000
-${DELAY}  0 seconds
+${DELAY}  0.2 seconds
 ${FRONTPAGE_URL}  http://${SERVER}
 ${ADD_REFERENCE_URL}  http://${SERVER}/add_reference
 ${VIEW_REFERENCE_URL}  http://${SERVER}/view_reference
@@ -19,7 +19,7 @@ ${CATEGORY_URL}  http://${SERVER}/add_category
 *** Keywords ***
 Open And Configure Browser
     ${options}  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys
-    Call Method  ${options}  add_argument  --headless
+    #Call Method  ${options}  add_argument  --headless
     Open Browser  browser=chrome  options=${options}
     Set Selenium Speed  ${DELAY}
     Register
@@ -59,5 +59,5 @@ Set Category
 
 Add Test Category
     Go To Category Page
-    Set Category  test
+    Set Category  testcategory
     Click Button  Add category
