@@ -1,13 +1,12 @@
 *** Settings ***
-Resource  resource.robot
-Resource  reference_resource.robot
+Resource  resources/resource.robot
 Suite Setup  Open And Configure Browser
 Suite Teardown  Close Browser
 
 *** Test Cases ***
-Add Article With Correct Information
+Add Article With Correct Information And View it
     Go To Add Reference Page
-    Choose Reference Type  article
+    Set Reference Type  article
     Set Key  article key
     Set Author  Tester
     Set Title  Article Test
@@ -16,11 +15,11 @@ Add Article With Correct Information
     Set Volume  12
     Set Pages  100-200
     Submit Reference
-    Add Reference Should Succeed  Article Test
+    Add Reference Should Succeed With Title  Article Test
 
 Add Article With Missing Field
     Go To Add Reference Page
-    Choose Reference Type  article
+    Set Reference Type  article
     Set Key  article key2
     Set Title  Article Test2
     Set Year  2001
@@ -32,7 +31,7 @@ Add Article With Missing Field
 
 Add Article With Invalid Number Field
     Go To Add Reference Page
-    Choose Reference Type  article
+    Set Reference Type  article
     Set Key  article key3
     Set Author  Tester
     Set Title  Article Test2
