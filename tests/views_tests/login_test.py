@@ -16,7 +16,7 @@ class TestLoginView(TestCase):
             reset_database()
 
         response = self.app.post("/register", data=test_user)
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
 
     def test_login_page_is_shown(self):
         response = self.app.get("/login")
