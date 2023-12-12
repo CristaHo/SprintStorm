@@ -5,7 +5,7 @@ Resource  user_resource.robot
 
 *** Variables ***
 ${SERVER}  localhost:8000
-${DELAY}  0 seconds
+${DELAY}  0.2 seconds
 ${FRONTPAGE_URL}  http://${SERVER}
 ${ADD_REFERENCE_URL}  http://${SERVER}/add_reference
 ${VIEW_REFERENCE_URL}  http://${SERVER}/view_reference

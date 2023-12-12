@@ -16,7 +16,7 @@ Add Article With Correct Information And View it
     Set Volume  12
     Set Pages  100-200
     Submit Reference
-    Add Reference Should Succeed  Article Test
+    Add Reference Should Succeed With Title  Article Test
 
 Add Article With Missing Field
     Go To Add Reference Page

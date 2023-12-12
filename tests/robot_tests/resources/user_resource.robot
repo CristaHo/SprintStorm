@@ -3,6 +3,12 @@ Library  SeleniumLibrary
 Resource  resource.robot
 
 *** Keywords ***
+User Setup Suite
+    ${options}  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys
+    #Call Method  ${options}  add_argument  --headless
+    Open Browser  browser=chrome  options=${options}
+    Set Selenium Speed  ${DELAY}
+
 Register
     Go To Register Page
     Set Username  test

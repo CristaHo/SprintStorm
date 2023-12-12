@@ -15,7 +15,7 @@ Add Book With Correct Information and View It
     Set Publisher  testpublisher
     Set Address  Teststreet 10
     Submit Reference
-    Add Reference Should Succeed  Book Test
+    Add Reference Should Succeed With Title  Book Test
 
 Add Book With Missing Field
     Go To Add Reference Page

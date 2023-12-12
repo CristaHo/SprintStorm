@@ -2,7 +2,7 @@
 Resource  resource.robot
 
 *** Keywords ***
-Add Reference Should Succeed
+Add Reference Should Succeed With Title
     View Reference Page Should Be Open
     [Arguments]  ${title}
     Page Should Contain  ${title}
