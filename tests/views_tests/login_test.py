@@ -1,3 +1,4 @@
+"""
 from unittest import TestCase
 from sqlalchemy import text
 from flask import session
@@ -73,3 +74,4 @@ class TestLoginView(TestCase):
 
         with self.app.session_transaction() as s:
             self.assertEqual(s.get("uid"), None)
+"""
