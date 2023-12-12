@@ -1,6 +1,7 @@
 *** Settings ***
 Library  SeleniumLibrary
 Library  OperatingSystem
+Resource  user_resource.robot
 
 *** Variables ***
 ${SERVER}  localhost:8000
@@ -79,19 +80,6 @@ Choose Reference Type
     [Arguments]  ${type}
     Select From List by Value  id=ref  ${type}
     Click Button  Select
-
-Register
-    Go To Register Page
-    Set Username  test
-    Set Password1  1234
-    Set Password2  1234
-    Submit Register
-
-Login
-    Go To Login Page
-    Set Username  test
-    Set Password  1234
-    Submit Login
 
 Add Test Category
     Go To Category Page
