@@ -1,7 +1,5 @@
 *** Settings ***
 Resource  resources/resource.robot
-Resource  resources/user_resource.robot
-Resource    resources/download_resource.robot
 Suite Setup  User Setup Suite
 Suite Teardown  Close Browser
 
@@ -15,5 +13,4 @@ Create Account Login And View references
     Add Reference Should Succeed With Title  Book Test
     Go To View Reference Page
     Page Should Contain  Book Test
-
 

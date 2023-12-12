@@ -1,6 +1,5 @@
 *** Settings ***
-Library  OperatingSystem
-Resource  resources/download_resource.robot
+Resource  resources/resource.robot
 Suite Setup  Download Setup Suite
 Suite Teardown  Teardown Suite
 

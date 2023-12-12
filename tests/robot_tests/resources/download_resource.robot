@@ -1,7 +1,7 @@
 *** Settings ***
 Library  SeleniumLibrary
 Library  OperatingSystem
-Resource  reference_resource.robot
+Resource  resource.robot
 
 *** Variables ***
 ${DOWNLOAD_DIR}  ./tests/robot_tests/test_downloads
