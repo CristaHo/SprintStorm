@@ -6,9 +6,8 @@ Suite Teardown  Teardown Suite
 
 
 *** Test Cases ***
-Download Reference File
+Create reference and Download BibTeX File
     Add Book Reference
     Go To View Reference Page
     Click Link  /view_reference/download
     Wait Until Keyword Succeeds  5 seconds  1 seconds  File Should Exist  ${DOWNLOAD_DIR}/${FILE_NAME}
-

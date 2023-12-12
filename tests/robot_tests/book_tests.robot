@@ -5,7 +5,7 @@ Suite Setup  Open And Configure Browser
 Suite Teardown  Close Browser
 
 *** Test Cases ***
-Add Book With Correct Information
+Add Book With Correct Information and View It
     Go To Add Reference Page
     Choose Reference Type  book
     Set Key  book key

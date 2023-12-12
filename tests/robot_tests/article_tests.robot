@@ -5,7 +5,7 @@ Suite Setup  Open And Configure Browser
 Suite Teardown  Close Browser
 
 *** Test Cases ***
-Add Article With Correct Information
+Add Article With Correct Information And View it
     Go To Add Reference Page
     Choose Reference Type  article
     Set Key  article key
