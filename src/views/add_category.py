@@ -2,7 +2,7 @@
 File to handle adding/deleting category route
 """
 
-from flask import request, render_template, redirect, session, flash
+from flask import request, render_template, redirect, session, flash,url_for
 from src.app import app
 from src.db import category
 from src.utils.logging import log
@@ -14,6 +14,9 @@ def add_category():
     """
     user_id = session.get("uid")
     if request.method == "GET":
+        if session.get("uid") is None:
+            flash("Login needed to view this page")
+            return redirect(url_for('login'))
         categories = category.get_all(user_id)
         log.info(f"All users categories: {categories}")
 
