@@ -1,6 +1,6 @@
 *** Settings ***
 Resource  resource.robot
-Library  ../../../../utils/database.py
+Library  userlibrary.py
 
 *** Keywords ***
 User Teardown Suite
