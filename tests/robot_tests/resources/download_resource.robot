@@ -1,6 +1,4 @@
 *** Settings ***
-Library  SeleniumLibrary
-Library  OperatingSystem
 Resource  resource.robot
 
 *** Variables ***
@@ -19,19 +17,8 @@ Download Setup Suite
     Register
     Login
     Add Test Category
-Teardown Suite
+Download Teardown Suite
     Close Browser
     Remove Files  ${DOWNLOAD_DIR}/*
-
-Add Book Reference
-    Go To Add Reference Page
-    Choose Reference Type  book
-    Set Key  book key2
-    Set Author  Tester
-    Set Title  Book Test
-    Set Year  2000
-    Set Publisher  testpublisher
-    Set Address  Teststreet 10
-    Submit Reference
 
     

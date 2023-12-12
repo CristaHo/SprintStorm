@@ -60,3 +60,24 @@ Set Volume
 Set Pages
     [Arguments]  ${pages}
     Input Text  pages  ${pages}
+
+Add Book Reference
+    Go To Add Reference Page
+    Set Reference Type  book
+    Set Key  book key2
+    Set Author  Tester
+    Set Title  Book Test
+    Set Year  2000
+    Set Publisher  testpublisher
+    Set Address  Teststreet 10
+    Submit Reference
+
+Set Reference Type
+    [Arguments]  ${type}
+    Select From List by Value  id=ref  ${type}
+    Click Button  Select
+
+Set Category
+    [Arguments]  ${type}
+    Select From List by Value  id=category  ${type}
+

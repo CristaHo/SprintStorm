@@ -6,7 +6,7 @@ Suite Teardown  Close Browser
 *** Test Cases ***
 Add Book With Correct Information and View It
     Go To Add Reference Page
-    Choose Reference Type  book
+    Set Reference Type  book
     Set Key  book key
     Set Author  Tester
     Set Title  Book Test
@@ -18,7 +18,7 @@ Add Book With Correct Information and View It
 
 Add Book With Missing Field
     Go To Add Reference Page
-    Choose Reference Type  book
+    Set Reference Type  book
     Set Key  book key2
     Set Title  Book Test2
     Set Year  2001
@@ -29,7 +29,7 @@ Add Book With Missing Field
 
 Add Book With Incorrect Year
     Go To Add Reference Page
-    Choose Reference Type  book
+    Set Reference Type  book
     Set Key  book key3
     Set Author  Tester
     Set Title  Book Test3

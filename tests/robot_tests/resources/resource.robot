@@ -53,36 +53,9 @@ Go To Login Page
 Go To Category Page
     Go To  ${CATEGORY_URL}
 
-Set Username
-    [Arguments]  ${username}
-    Input Text  username  ${username}
-
-Set Password1
-    [Arguments]  ${password1}
-    Input Text  password1  ${password1}
-
-Set Password2
-    [Arguments]  ${password2}
-    Input Text  password2  ${password2}
-
-Submit Register
-    Click Button  Register
-
-Set Password
-    [Arguments]  ${password}
-    Input Text  password  ${password}
-
-Submit Login
-    Click Button  Login
-
 Set Category
     [Arguments]  ${category}
     Input Text  name  ${category}
-
-Choose Reference Type
-    [Arguments]  ${type}
-    Select From List by Value  id=ref  ${type}
-    Click Button  Select
 
 Add Test Category
     Go To Category Page

@@ -1,7 +1,7 @@
 *** Settings ***
 Resource  resources/resource.robot
 Suite Setup  Download Setup Suite
-Suite Teardown  Teardown Suite
+Suite Teardown  Download Teardown Suite
 
 
 *** Test Cases ***
