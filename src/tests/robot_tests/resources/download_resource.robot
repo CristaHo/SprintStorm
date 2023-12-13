@@ -2,7 +2,7 @@
 Resource  resource.robot
 
 *** Variables ***
-${DOWNLOAD_DIR}  ./tests/robot_tests/test_downloads
+${DOWNLOAD_DIR}  ./src/tests/robot_tests/test_downloads
 ${FILE_NAME}  bib-file.bib
 
 *** Keywords ***
