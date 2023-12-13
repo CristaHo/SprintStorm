@@ -6,7 +6,6 @@ from sqlalchemy import text
 from src.utils.database import db
 from src.utils.logging import log
 
-
 def delete_user_by_id(uid):
     """
     Deletes a user from the database
@@ -14,6 +13,7 @@ def delete_user_by_id(uid):
     sql = text("DELETE FROM users WHERE id =:uid")
 
     result = db.session.execute(sql,{"uid":uid})
+    db.session.commit()
     affected_rows = result.rowcount
 
     if affected_rows > 0:
