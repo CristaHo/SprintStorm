@@ -16,7 +16,7 @@ def add_reference():
         if session.get("uid") is None:
             flash("Login needed to view this page")
             return redirect(url_for('login'))
-        return render_template("add_reference.html")
+        return render_template("add_reference.html",login_status = session.get("uid") is not None)
 
     if request.method == "POST":
         log.info(f"Creating reference with data: {request.form}")

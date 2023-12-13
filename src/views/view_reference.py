@@ -24,7 +24,8 @@ def view_reference():
 
         log.info(f"All references: {reference_list}")
         return render_template("view_reference.html",
-                               references=reference_list, categories = categories)
+                               references=reference_list, categories = categories,
+                               login_status = session.get("uid") is not None)
     if request.method == "POST":
         cat = request.form["category"]
         if int(cat) != 0:
