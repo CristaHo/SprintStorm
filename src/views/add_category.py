@@ -20,7 +20,8 @@ def add_category():
         categories = category.get_all(user_id)
         log.info(f"All users categories: {categories}")
 
-        return render_template("add_category.html", categories=categories)
+        return render_template("add_category.html", categories=categories,
+                               login_status = session.get("uid") is not None)
 
     if request.method == "POST":
         name = request.form["name"]

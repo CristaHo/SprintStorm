@@ -60,8 +60,9 @@
     <a class="nav" href="/add_category">Add category</a>
     <a class="nav" href="/add_reference">Add reference</a>
     <a class="nav" href="/view_reference">View references</a>
+    {% if login_status == True %}
     <a class="nav" href="/logout">Logout</a>
-        
+    {% endif %}
     </div>
 <hr>
 
