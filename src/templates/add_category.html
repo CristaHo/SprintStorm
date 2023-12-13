@@ -2,6 +2,7 @@
     {% extends "layout.html" %}
     {% block title %}Add category{% endblock %}
     {% block content %}
+    <br>
     {% for message in get_flashed_messages() %}
       <p>{{message}}</p>
     {% endfor %}

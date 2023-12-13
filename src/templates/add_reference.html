@@ -2,6 +2,7 @@
   {% extends "layout.html" %}
   {% block title %}Add reference{% endblock %}
   {% block content %}
+  <br>
   {% for message in get_flashed_messages() %}
     <p>{{message}}</p>
   {% endfor %}
@@ -14,7 +15,7 @@
         </select>
         <input type="submit" value="Select">
       </form>
-    <hr>
+    <br>
       {% if choice == "book" %}
       <form action="/add_reference" method="POST">
         <label for="key">Key:</label>
