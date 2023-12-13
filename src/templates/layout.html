@@ -15,6 +15,16 @@
             font-family:'Space Mono', 'Lucida Console', monospace ;
         }
 
+        a:link, a:visited {
+            color: black;
+        }
+
+        a:hover {
+            color: white;
+            background-color: black;
+
+        }
+
         select:invalid{
         color: gray;
         }
@@ -44,6 +54,16 @@
 <div class="header">
     <h1>Bibtex maker</h1>
 </div>
+<div class="nav">
+    
+    <a class="nav" href="/">Frontpage</a>
+    <a class="nav" href="/add_category">Add category</a>
+    <a class="nav" href="/add_reference">Add reference</a>
+    <a class="nav" href="/view_reference">View references</a>
+    <a class="nav" href="/logout">Logout</a>
+        
+    </div>
+<hr>
 
 {% block content %}{% endblock %}
 
