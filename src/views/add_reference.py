@@ -4,7 +4,7 @@ Blueprint for handling the addition of new references.
 
 from flask import request, render_template, redirect,session,flash,url_for
 from src.app import app
-from src.db import book, article, category
+from src.db import book, article, category, misc
 from src.utils.logging import log
 
 @app.route("/add_reference", methods=["GET", "POST"])
@@ -63,6 +63,22 @@ def add_reference():
                 "journal": journal,
                 "volume": volume,
                 "pages": pages,
+                "category_id": category_id,
+                "user_id":user_id
+                })
+
+        if request.form["reftype"] == "misc":
+            url = request.form['url']
+            urldate = request.form['urldate']
+
+            log.info("Inserting misc to database...")
+            misc.insert_one({
+                "key": key,
+                "author": author, 
+                "title": title, 
+                "year": year, 
+                "url": url,
+                "urldate": urldate,
                 "category_id": category_id,
                 "user_id":user_id
                 })

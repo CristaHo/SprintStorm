@@ -13,7 +13,7 @@ Add Article With Correct Information And View it
     Set Year  2000
     Set Journal  test journal
     Set Volume  12
-    Set Pages  100-200
+    Set Pages  100--200
     Submit Reference
     Add Reference Should Succeed With Title  Article Test
 
@@ -25,7 +25,7 @@ Add Article With Missing Field
     Set Year  2001
     Set Journal  test journal
     Set Volume  12
-    Set Pages  100-200
+    Set Pages  100--200
     Submit Reference
     Add Reference Should Fail For Missing Field  Author
 
@@ -38,6 +38,6 @@ Add Article With Invalid Number Field
     Set Year  2001
     Set Journal  test journal
     Set Volume  12
-    Set Pages  -12-10
+    Set Pages  -12--10
     Submit Reference
-    Add Reference Should Fail For Field With Message  pages  Please enter a single page or a page range (eg. 32 or 101-167).
+    Add Reference Should Fail For Field With Message  pages  Please enter a single page or a page range (eg. 32 or 101--167).

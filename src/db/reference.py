@@ -2,24 +2,30 @@
 Handles reference things
 """
 import os
-from src.db import book, article
+from src.db import book, article, misc
 
 def get_all(uid):
     """
-    Gets all references from database
+    Gets all references from the database
     """
-    books = book.get_all(uid)
-    articles = article.get_all(uid)
+    collections = {
+        "books": book.get_all(uid),
+        "articles": article.get_all(uid),
+        "miscs": misc.get_all(uid)
+    }
 
-    if books and articles:
-        return books + articles
-    return books if books else articles
+    return collections
 
 def get_references_in_bibtex(references):
     """
     Returns list of references in bibtex format as string
     """
-    bibtex_list_string = '\n\n'.join(reference.bibtex_str() for reference in references)
+    values = []
+    for reference, value in references.items():
+        if references[reference]:
+            values += value
+
+    bibtex_list_string = '\n\n'.join(ref.bibtex_str() for ref in values)
     return bibtex_list_string
 
 def create_bib_file(bib_string):

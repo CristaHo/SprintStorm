@@ -24,7 +24,7 @@ class ArticleDatabaseTest(TestCase):
             "year": 2023,
             "journal": "Mitä tä tarkottaa :D", 
             "volume": 3,
-            "pages": "200-300",
+            "pages": "200--300",
             "category_id":1,
             "user_id":1
         }
@@ -47,7 +47,7 @@ class ArticleDatabaseTest(TestCase):
             self.assertEqual(result[0].year, 2023)
             self.assertEqual(result[0].journal, "Mitä tä tarkottaa :D")
             self.assertEqual(result[0].volume, 3)
-            self.assertEqual(result[0].pages, "200-300")
+            self.assertEqual(result[0].pages, "200--300")
         else:
             raise AssertionError("No result from database")
 
@@ -59,7 +59,7 @@ class ArticleDatabaseTest(TestCase):
             "year": 2023,
             "journal": "Mitä tä tarkottaa :D", 
             "volume": 3,
-            "pages": "200-300",
+            "pages": "200--300",
             "category_id":1,
             "user_id":1
         }
@@ -71,7 +71,7 @@ class ArticleDatabaseTest(TestCase):
             "year": 2020,
             "journal": "Edelleenkään en tiedä", 
             "volume": 1,
-            "pages": "100-200",
+            "pages": "100--200",
             "category_id":2,
             "user_id":1
         }
@@ -100,7 +100,7 @@ class ArticleDatabaseTest(TestCase):
             "year": 2023,
             "journal": "Mitä tä tarkottaa :D", 
             "volume": 3,
-            "pages": "200-300",
+            "pages": "200--300",
             "category_id":1,
             "user_id":1
         }
@@ -112,7 +112,7 @@ class ArticleDatabaseTest(TestCase):
             "year": 2020,
             "journal": "Edelleenkään en tiedä", 
             "volume": 1,
-            "pages": "100-200",
+            "pages": "100--200",
             "category_id":2,
             "user_id":2
         }
@@ -144,7 +144,7 @@ class ArticleDatabaseTest(TestCase):
             "year": 2023,
             "journal": "Mitä tä tarkottaa :D", 
             "volume": 3,
-            "pages": "200-300",
+            "pages": "200--300",
             "category_id":1,
             "user_id":1
         }

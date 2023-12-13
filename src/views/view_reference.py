@@ -16,7 +16,7 @@ def view_reference():
     """
     user_id = session.get("uid")
     categories = category.get_all(user_id) or []
-    reference_list = get_all(user_id) or []
+    reference_list = get_all(user_id)
     if request.method == "GET":
         if user_id is None:
             flash("Login needed to view this page")
@@ -29,7 +29,9 @@ def view_reference():
     if request.method == "POST":
         cat = request.form["category"]
         if int(cat) != 0:
-            reference_list = [ref for ref in reference_list if ref.category_id == int(cat)]
+            reference_list = {key: [ref for ref in value if ref.category_id == int(cat)]
+                              for key, value in reference_list.items() if value}
+
         log.info(f"References for category: {reference_list}")
         return render_template("view_reference.html",
                                references=reference_list, categories=categories)
