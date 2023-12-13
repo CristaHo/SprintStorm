@@ -17,6 +17,17 @@ CREATE TABLE IF NOT EXISTS reference (
     year INTEGER
 );
 
+CREATE TABLE IF NOT EXISTS misc (
+    id SERIAL PRIMARY KEY,
+    author TEXT,
+    title TEXT,
+    year INTEGER,
+    url TEXT,
+    url_date TEXT,
+    category_id INTEGER REFERENCES category ON DELETE CASCADE,
+    user_id INTEGER REFERENCES users NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS book (
     id SERIAL PRIMARY KEY, 
     cite_key TEXT,
