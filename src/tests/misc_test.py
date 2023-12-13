@@ -6,7 +6,7 @@ class TestMisc(unittest.TestCase):
         self.reference = Misc(fields={
             "key": "Someuniquekey", "author": "test", "title": "test_title",
             "year": "2023", "url": "https://www.wikipedia.com", 
-            "url_date": "13.12.2023", "category_id":1
+            "urldate": "13.12.2023", "category_id":1
         })
 
     def test_author_takes_constructor_value(self):
@@ -48,11 +48,11 @@ class TestMisc(unittest.TestCase):
         self.assertEqual(self.reference.url, "https://www.is.fi")
 
     def test_urldate_takes_constructor_value(self):
-        self.assertEqual(self.reference.url_date, "13.12.2023")
+        self.assertEqual(self.reference.urldate, "13.12.2023")
 
     def test_set_urldate_changes_url(self):
-        self.reference.url_date = "9.11.2023"
-        self.assertEqual(self.reference.url_date, "9.11.2023")
+        self.reference.urldate = "9.11.2023"
+        self.assertEqual(self.reference.urldate, "9.11.2023")
 
     def test_bibtex_str(self):
         example_str = """@misc{Someuniquekey,

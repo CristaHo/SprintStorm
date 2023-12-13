@@ -19,11 +19,12 @@ CREATE TABLE IF NOT EXISTS reference (
 
 CREATE TABLE IF NOT EXISTS misc (
     id SERIAL PRIMARY KEY,
+    cite_key TEXT,
     author TEXT,
     title TEXT,
     year INTEGER,
     url TEXT,
-    url_date TEXT,
+    urldate TEXT,
     category_id INTEGER REFERENCES category ON DELETE CASCADE,
     user_id INTEGER REFERENCES users NOT NULL
 );

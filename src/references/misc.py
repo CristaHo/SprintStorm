@@ -4,7 +4,7 @@
     Extends the Reference class
     Contains additional fields:
         - url
-        - url_date
+        - urldate
 """
 from src.references.reference import Reference
 
@@ -23,7 +23,7 @@ class Misc(Reference):
                 "category_id": fields['category_id']
                 })
         self._url = fields['url']
-        self._url_date = fields['url_date']
+        self._urldate = fields['urldate']
 
     @property
     def url(self):
@@ -40,18 +40,18 @@ class Misc(Reference):
         self._url = url
 
     @property
-    def url_date(self):
+    def urldate(self):
         """
         Return the url date
         """
-        return self._url_date
+        return self._urldate
 
-    @url_date.setter
-    def url_date(self, url_date):
+    @urldate.setter
+    def urldate(self, urldate):
         """
         Sets the url date
         """
-        self._url_date = url_date
+        self._urldate = urldate
 
     def bibtex_str(self) -> str:
         # \u007b = {
@@ -61,6 +61,6 @@ class Misc(Reference):
     author = \u007b{self.author}\u007d,
     year = \u007b{self.year}\u007d,
     url = \u007b{self.url}\u007d,
-    urldate = \u007b{self._url_date}\u007d
+    urldate = \u007b{self._urldate}\u007d
 \u007d"""
         return string
