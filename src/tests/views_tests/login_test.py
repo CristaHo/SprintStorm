@@ -7,8 +7,8 @@ class TestLoginView(TestCase):
     def setUp(self):
         test_user = {
                 "username": "test",
-                "password1": "1234",
-                "password2": "1234"
+                "password1": "12345678",
+                "password2": "12345678"
                 }
         self.app = app.test_client()
         with app.app_context():
@@ -27,7 +27,7 @@ class TestLoginView(TestCase):
     def test_existing_user_can_login(self):
         test_user = {
                 "username": "test",
-                "password": "1234"
+                "password": "12345678"
                 }
         response = self.app.post("/login", data=test_user)
         self.assertEqual(response.status_code, 302) # redirect
@@ -37,12 +37,12 @@ class TestLoginView(TestCase):
     def test_correct_userid_set_to_session(self):
         other_test_user = {
                 "username": "othertest",
-                "password1": "4321",
-                "password2": "4321"
+                "password1": "43215678",
+                "password2": "43215678"
                 }
         other_user_login = {
                 "username": "othertest",
-                "password": "4321",
+                "password": "43215678",
                 }
         self.app.post("/register", data=other_test_user)
         response = self.app.post("/login", data=other_user_login)
@@ -53,7 +53,7 @@ class TestLoginView(TestCase):
     def test_incorrect_username_cant_login(self):
         test_user = {
                 "username": "somewrongname",
-                "password": "1234"
+                "password": "12345678"
                 }
         response = self.app.post("/login", data=test_user)
         self.assertEqual(response.status_code, 200)
@@ -65,7 +65,7 @@ class TestLoginView(TestCase):
     def test_incorrect_password_cant_login(self):
         test_user = {
                 "username": "test",
-                "password": "1235"
+                "password": "12354678"
                 }
         response = self.app.post("/login", data=test_user)
         self.assertEqual(response.status_code, 200)

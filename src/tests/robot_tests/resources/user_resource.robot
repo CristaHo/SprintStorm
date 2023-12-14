@@ -11,14 +11,14 @@ User Setup Suite
 Register
     Go To Register Page
     Set Username  test
-    Set Password1  1234
-    Set Password2  1234
+    Set Password1  12345678
+    Set Password2  12345678
     Submit Register
 
 Login
     Go To Login Page
     Set Username  test
-    Set Password  1234
+    Set Password  12345678
     Submit Login
 
 Set Username
