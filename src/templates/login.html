@@ -9,9 +9,9 @@
 
   <form action="/login" method="POST">
     <p>Username:<br>
-    <input type="text" name="username"></p>
+    <input type="text" name="username" minlength="3"></p>
     <p>Password:<br>
-    <input type="password" name="password"></p>
+    <input type="password" name="password" minlength="8"></p>
     <input type="submit" class="button" value="Login">
     </form>
     <p>No account yet? <a class="nav" href="/register">Register new account</a></p>

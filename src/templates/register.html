@@ -7,11 +7,11 @@
   {% endif %}
 <form action="/register" method="POST">
 <p>Username:<br>
-<input type="text" name="username"></p>
+<input type="text" name="username" minlength="3"></p>
 <p>Password:<br>
-<input type="password" name="password1"></p>
+<input type="password" name="password1" minlength="8"></p>
 <p>Confirm password:<br>
-<input type="password" name="password2"></p>
+<input type="password" name="password2" minlength="8"></p>
 <input class="button" type="submit" value="Register">
 </form>
 

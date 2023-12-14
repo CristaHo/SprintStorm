@@ -5,6 +5,8 @@ from werkzeug.security import generate_password_hash
 from sqlalchemy import text, exc
 from src.utils.database import db
 
+from src.utils.logging import log
+
 def insert_new_user(username, password):
     """Inserts a new user into database"""
     hash_value = generate_password_hash(password)
@@ -15,4 +17,5 @@ def insert_new_user(username, password):
         db.session.commit()
         return True
     except exc.IntegrityError:
+        log.error("Failed to save the user to database:", exc_info=True)
         return False
