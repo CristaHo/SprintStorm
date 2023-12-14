@@ -37,6 +37,7 @@ def register():
             return redirect(url_for('index'))
 
         else:
+            log.error("Error in user creation, undefined error")
             error = "Error in user creation"
 
     return render_template("register.html", error=error)
