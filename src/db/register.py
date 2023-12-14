@@ -16,6 +16,6 @@ def insert_new_user(username, password):
         db.session.execute(sql, {"username":username, "password":hash_value})
         db.session.commit()
         return True
-    except exc.IntegrityError as e:
-        log.error("Failed to save the user to database:", e)
+    except exc.IntegrityError:
+        log.error("Failed to save the user to database:", exc_info=True)
         return False
