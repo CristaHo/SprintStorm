@@ -14,7 +14,7 @@
       <br>
       {% for category in categories %}
         <p>{{ category.name }} 
-            <form action="/delete_category" method="POST">
+            <form action="/verify_removal" method="POST">
             <input type="hidden" name="id" value="{{ category.id }}">
             <button type="submit">Delete</button>
             </form>
