@@ -18,8 +18,8 @@ class TestRegisterView(TestCase):
     def test_register_new_correct_user(self):
         test_user = {
                 "username": "test",
-                "password1": "1234",
-                "password2": "1234"
+                "password1": "12345678",
+                "password2": "12345678"
                 }
 
         # empty database
@@ -46,7 +46,7 @@ class TestRegisterView(TestCase):
     def test_register_no_password_confirmation(self):
         test_user = {
                 "username": "test",
-                "password1": "1234",
+                "password1": "12345678",
                 }
 
         response = self.app.post("/register", data=test_user)
@@ -56,7 +56,7 @@ class TestRegisterView(TestCase):
     def test_register_empty_password_confirmation(self):
         test_user = {
                 "username": "test",
-                "password1": "1234",
+                "password1": "12345678",
                 "password2": ""
                 }
 
@@ -68,8 +68,8 @@ class TestRegisterView(TestCase):
     def test_register_no_matching_password_confirmation(self):
         test_user = {
                 "username": "test",
-                "password1": "1234",
-                "password2": "123"
+                "password1": "12345678",
+                "password2": "12348765"
                 }
 
         response = self.app.post("/register", data=test_user)
@@ -80,13 +80,13 @@ class TestRegisterView(TestCase):
     def test_register_duplicate_user(self):
         test_user = {
                 "username": "test",
-                "password1": "1234",
-                "password2": "1234"
+                "password1": "12345678",
+                "password2": "12345678"
                 }
         other_test_user = {
                 "username": "test",
-                "password1": "4321",
-                "password2": "4321"
+                "password1": "43215678",
+                "password2": "43215678"
                 }
 
         response = self.app.post("/register", data=test_user)
@@ -99,8 +99,8 @@ class TestRegisterView(TestCase):
     def test_register_incorrect_method_put(self):
         test_user = {
                 "username": "test",
-                "password1": "1234",
-                "password2": "1234"
+                "password1": "12345678",
+                "password2": "12345678"
                 }
         response = self.app.put("/register", data=test_user)
         print(response.data)
