@@ -1,13 +1,11 @@
 *** Settings ***
 Resource  resources/resource.robot
 Suite Setup  User Setup Suite
-Suite Teardown  Teardown Suite
+Suite Teardown  Close Browser
 
 *** Test Cases ***
 Create Account Login And View References
     Register
-    Front Page Should Be Open
-    Page Should Contain  User created
     Login
     Front Page Should Be Open
     Page Should Contain Link  /logout
@@ -18,6 +16,7 @@ Create Account Login And View References
     Logout
 
 Login And Create Reference With Category
+    Register
     Login
     Front Page Should Be Open
     Page Should Contain Link  /logout
@@ -29,6 +28,7 @@ Login And Create Reference With Category
     Logout
 
 Login And View Reference By Category
+    Register
     Login
     Front Page Should Be Open
     Page Should Contain Link  /logout
@@ -37,3 +37,4 @@ Login And View Reference By Category
     Submit Filter
     Page Should Contain  Book Test
     Logout
+

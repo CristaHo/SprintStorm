@@ -15,7 +15,6 @@ ${VIEW_REFERENCE_URL}  http://${SERVER}/view_reference
 ${REGISTER_URL}  http://${SERVER}/register
 ${LOGIN_URL}  http://${SERVER}/login
 ${CATEGORY_URL}  http://${SERVER}/add_category
-${DELETE_USER_URL}  http://${SERVER}/delete_user
 
 *** Keywords ***
 Open And Configure Browser
@@ -25,10 +24,6 @@ Open And Configure Browser
     Set Selenium Speed  ${DELAY}
     Register
     Login
-
-Teardown Suite
-    Delete User
-    Close Browser
 
 Front Page Should Be Open
     Title Should Be  Bibtex maker - Frontpage
@@ -59,9 +54,6 @@ Go To Login Page
 
 Go To Category Page
     Go To  ${CATEGORY_URL}
-
-Delete User
-    Go To  ${DELETE_USER_URL}
 
 Set Category
     [Arguments]  ${category}
