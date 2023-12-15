@@ -41,4 +41,3 @@ def verify_category_removal():
     else:
         log.info(f"Removal for category id {category_id} in process")
         return render_template("category_removal.html", remove_category=True, category_id=category_id)
-

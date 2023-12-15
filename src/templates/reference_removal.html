@@ -1,10 +1,11 @@
 <body>
     {% extends "verify_removal.html" %}
     {% block content %}
+        <h3>Verify removal</h3>
         <form action="/view_reference/delete" method="POST">
             <input type="hidden" name="reference_key" value="{{ reference_key }}">
             <input type="hidden" name="reference_type" value="{{ reference_type }}">
-            <button type="submit">I really want that reference deleted</button>
+            <button type="submit" name="submit">I really want that reference deleted</button>
         </form>
         <a href="/view_reference">Go back</a>
     {% endblock %}
