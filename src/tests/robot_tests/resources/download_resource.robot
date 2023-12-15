@@ -18,6 +18,7 @@ Download Setup Suite
     Login
 
 Download Teardown Suite
+    Delete User
     Close Browser
     Remove Files  ${DOWNLOAD_DIR}/*
 
