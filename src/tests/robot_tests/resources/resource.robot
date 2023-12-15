@@ -34,6 +34,9 @@ Add Reference Page Should Be Open
 View Reference Page Should Be Open
     Title Should Be  Bibtex maker - View references
 
+View Removal Verfication Page Should Be Open
+    Title Should Be  Bibtex maker - Verify removal
+
 Go To Front Page
     Go To  ${FRONTPAGE_URL}
 
@@ -60,3 +63,12 @@ Add Test Category
     Go To Category Page
     Set Category  testcategory
     Click Button  Add category
+
+Delete Test Category
+    Click Button  Delete
+
+Delete Test Reference
+    Click Button  Delete this reference
+
+Verify Test Delete
+    Click Button  name:submit

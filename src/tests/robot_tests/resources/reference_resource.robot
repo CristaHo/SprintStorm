@@ -18,6 +18,9 @@ Add Reference Should Fail For Missing Field
     [Arguments]  ${field}
     Element Should Be Visible  css=input#${field}:required:invalid
 
+Delete Reference Should Succeed
+    View Reference Page Should Be Open
+
 Choose Category Type
     [Arguments]  ${type}
     Select From List By Value  id=category  ${type}
