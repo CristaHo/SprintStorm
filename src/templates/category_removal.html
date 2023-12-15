@@ -1,0 +1,10 @@
+<body>
+    {% extends "verify_removal.html" %}
+    {% block content %}
+        <form action="/delete_category" method="POST">
+            <input type="hidden" name="id" value="{{ category_id }}">
+            <button type="submit">I really want that category deleted</button>
+        </form>
+        <a href="/add_category">Go back</a>
+    {% endblock %}
+</body>

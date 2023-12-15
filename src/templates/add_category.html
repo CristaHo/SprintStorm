@@ -14,9 +14,10 @@
       <br>
       {% for category in categories %}
         <p>{{ category.name }} 
-            <form action="/verify_removal" method="POST">
-            <input type="hidden" name="id" value="{{ category.id }}">
-            <button type="submit">Delete</button>
+            <form action="/verify_removal/category" method="POST">
+                <input type="hidden" name="is_category" value="True">
+                <input type="hidden" name="id" value="{{ category.id }}">
+                <button type="submit">Delete</button>
             </form>
         </p>
       {% endfor %}

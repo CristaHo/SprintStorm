@@ -5,19 +5,5 @@
     {% if error %}
         <p class=error><strong>Error:</strong> {{ error }}
     {% endif %}
-    {% if remove_category %}
-        <form action="/delete_category" method="POST">
-            <input type="hidden" name="id" value="{{ category_id }}">
-            <button type="submit">I really want that category deleted</button>
-        </form>
-        <a href="/add_category">Go back</a>
-    {% elif remove_reference %}
-        <form action="/view_reference/delete" method="POST">
-            <input type="hidden" name="reference_key" value="{{ reference_key }}">
-            <input type="hidden" name="reference_type" value="{{ reference_type }}">
-            <button type="submit">I really want that reference deleted</button>
-        </form>
-        <a href="/view_reference">Go back</a>
-    {% endif %}
     {% endblock %}
 </body>
