@@ -21,9 +21,11 @@ def verify_reference_removal():
     if not (reference_key or reference_type):
         log.info("Invalid removal requested")
         return redirect(url_for('view_references'))
-    else:
-        log.info(f"Removal for reference {reference_key} of {reference_type} type in process")
-        return render_template("reference_removal.html", remove_reference=True, reference_type=str(reference_type), reference_key=str(reference_key))
+    log.info(f"Removal for reference {reference_key} of {reference_type} type in process")
+    return render_template("reference_removal.html",\
+        remove_reference=True,\
+        reference_type=str(reference_type),\
+        reference_key=str(reference_key))
 
 @app.route("/verify_removal/category", methods=["POST"])
 def verify_category_removal():
@@ -38,6 +40,7 @@ def verify_category_removal():
     if not category_id:
         log.info("Invalid removal requested")
         return redirect(url_for('add_category'))
-    else:
-        log.info(f"Removal for category id {category_id} in process")
-        return render_template("category_removal.html", remove_category=True, category_id=category_id)
+    log.info(f"Removal for category id {category_id} in process")
+    return render_template("category_removal.html",\
+        remove_category=True,\
+        category_id=category_id)
