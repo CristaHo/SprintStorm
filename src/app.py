@@ -19,6 +19,7 @@ log.info(f"Current environment: {config.env()}")
 log.info(f"Current POSTGRES_URL: {config.db_url()}")
 
 import src.views.index
+import src.views.verify_removal
 import src.views.view_reference
 import src.views.add_reference
 import src.views.add_category

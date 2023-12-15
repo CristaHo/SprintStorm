@@ -36,7 +36,7 @@
 
             <form action="/verify_removal" method="POST">
                 <input type="hidden" name="reference_key" value="{{ reference.key }}">
-                    <input type="hidden" name="reference_type" value="book">
+                <input type="hidden" name="reference_type" value="book">
                 <input type="submit" value="Delete this reference">
             </form>
             </td>
@@ -68,9 +68,9 @@
             <td>{{ reference.pages  }}</td>
                 <td>
 
-            <form action="/view_reference/delete" method="POST">
+            <form action="/verify_removal" method="POST">
                 <input type="hidden" name="reference_key" value="{{ reference.key }}">
-                    <input type="hidden" name="reference_type" value="article">
+                <input type="hidden" name="reference_type" value="article">
                 <input type="submit" value="Delete this reference">
             </form>
             </td>
@@ -99,9 +99,9 @@
             <td>{{ reference.urldate }}</td>
                 <td>
 
-            <form action="/view_reference/delete" method="POST">
+            <form action="/verify_removal" method="POST">
                 <input type="hidden" name="reference_key" value="{{ reference.key }}">
-                    <input type="hidden" name="reference_type" value="misc">
+                <input type="hidden" name="reference_type" value="misc">
                 <input type="submit" value="Delete this reference">
             </form>
             </td>
