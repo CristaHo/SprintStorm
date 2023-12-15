@@ -16,7 +16,7 @@ def delete_user_by_id(uid):
         db.session.execute(text("DELETE FROM book WHERE user_id = :uid"), {"uid": uid})
         db.session.execute(text("DELETE FROM article WHERE user_id = :uid"), {"uid": uid})
         db.session.execute(text("DELETE FROM users WHERE id = :uid"), {"uid": uid})
-        
+
         db.session.commit()
         log.info(f"User with id {uid} deleted successfully.")
 
