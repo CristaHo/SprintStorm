@@ -8,6 +8,8 @@
 
 - [Linkki sovellukseen](https://sprintstorm-withered-sun-7283.fly.dev/)
 
+- [Loppuraportti](https://docs.google.com/document/d/1B7uIkqPxMMVWvY_r-hhpZ9iwKsEII_ftFlYPNV0APh8/edit?usp=sharing)
+
 ## Definition of done
 
 - **Analysointi ja suunnittelu**: User storya on mietitty yhdessä, jaettu taskeihin ja jaettu taskit ryhmän kesken.
